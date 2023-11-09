@@ -1,0 +1,42 @@
+// todo => Main Settings!
+$fontFamilyMain: "";
+$fontFamilySecondary: "";
+$fontSize: toRem(16);
+
+// Colors
+$mainColor: #ffffff;
+$bgColor: #0b0e17;
+$colorDecor: #22D7FF;
+$colorDecor2: #FFB076;
+$colorGray: #abaeb7;
+$colorGray2: #41444D;
+$colorDarkGray: #1A1D26;
+$colorLightDarkGray: #23262F;
+
+$main-gradient: linear-gradient(168deg, #2E335A 1.62%, #1C1B33 95.72%);
+$gradient-02: linear-gradient(135deg, rgba(15, 85, 232, 0.10) 0%, rgba(157, 223, 243, 0.10) 100%);
+
+// minimum page width
+$minWidth: 320;
+// The width of the canvas (layout)
+$maxWidth: 1920;
+// The width of the restrictive container (0 = no restriction)
+$maxWidthContainer: 1290;
+$maxWidthContainerBig: 1690;
+// General indentation from a container
+// (30 = 15px left and right, 0 = no retreat)
+$containerPadding: 30;
+
+//Breikpoints
+$tablet: em(991.98); // tablets, some phones in horizontal position
+$mobile: em(767.98); // phones l
+$mobileSmall: em(479.98); // phones with
+
+// todo => Other global variables
+
+$alpha1: 0.3;
+$alpha2: 0.5;
+$alpha3: 0.8;
+$alpha9: 0.95;
+
+// $example: example;
