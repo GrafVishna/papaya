@@ -5,13 +5,11 @@ export default function RButton({
   tag,
   onClick,
   children,
-  active,
-  rotate,
+  visible,
 }) {
   const Tag = tag || "span";
-  const activeClass = "opacity-0 group-[.parent-active]:opacity-100";
   const defaultClass =
-    "rounded-full overflow-hidden relative flex items-center justify-center flex-grow-0 flex-shrink-0 group";
+    "rounded-full overflow-hidden relative z-30 flex items-center justify-center flex-grow-0 flex-shrink-0 group";
 
   return (
     <Tag
@@ -21,9 +19,8 @@ export default function RButton({
       {children}
       <Round
         size="100%"
-        rotate={rotate}
-        active={active}
-        className={`absolute top-0 left-0   `}
+        visible={visible}
+        className={`round-gradient absolute top-0 left-0   `}
       />
     </Tag>
   );

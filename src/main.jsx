@@ -1,10 +1,17 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './components/App.jsx'
-import './index.scss'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./components/App.jsx";
+import "./index.scss";
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+import { BrowserRouter, Outlet } from "react-router-dom";
+import PageWrapper from "./components/Wrappers/PageWrapper.jsx";
+
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <App />
+    <PageWrapper>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </PageWrapper>
   </React.StrictMode>,
-)
+);

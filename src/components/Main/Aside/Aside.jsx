@@ -1,19 +1,21 @@
-import React from "react";
+import React, { useRef } from "react";
 import {
   Downloads,
   History,
-  Home,
+  IHome,
   Logo,
   Music,
-  Shorts,
+  IShorts,
   Subscriptions,
   Videos,
 } from "../../Icons.jsx";
-import NavItem from "./NavItem.jsx";
-import SimpleBar from "simplebar-react";
 import { useMatchMedia } from "../../../hooks/use-match-media.jsx";
 import AsideMobile from "./AsideMobile.jsx";
 import AsideDesktop from "./AsideDesktop.jsx";
+import { Route, Routes } from "react-router-dom";
+import Home from "../../Pages/Home/Home.jsx";
+import Shorts from "../../Pages/Shorts/Shorts.jsx";
+import App from "../../App.jsx";
 
 export default function Aside() {
   // Media
@@ -26,24 +28,25 @@ export default function Aside() {
 
   // Class
 
-  const mobileClass =
-    "h-auto bg-lg-main min-w-screen w-screen flex z-10 left-0 bottom-0 fixed";
+  const mobileClass = "min-w-auto bg-lg-main w-screen h-auto bottom-0";
   const desktopClass =
-    "tablet:pt-[120px] tablet:relative tablet:min-w-[200px] tablet:w-auto tablet:flex-col tablet:z-20";
+    "tablet:pt-[120px] fixed tablet:h-screen tablet:top-0 tablet:left-0 tablet:w-[200px] tablet-big:w-[240px] tablet:z-40";
 
   // ====
 
   return (
-    <aside className={`aside ${mobileClass} ${desktopClass}`}>
-      {!isMobile ? (
-        <div className="py-3.5 w-full px-5 absolute top-16 left-0">
-          <Logo className="w-28" />
-        </div>
-      ) : (
-        ""
-      )}
+    <>
+      <aside className={`aside ${mobileClass} ${desktopClass}`}>
+        {!isMobile ? (
+          <div className="py-3.5 w-full px-5 absolute top-16 left-0">
+            <Logo className="w-28" />
+          </div>
+        ) : (
+          ""
+        )}
 
-      {!isMobile ? <AsideDesktop /> : <AsideMobile />}
-    </aside>
+        {!isMobile ? <AsideDesktop /> : <AsideMobile />}
+      </aside>
+    </>
   );
 }

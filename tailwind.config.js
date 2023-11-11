@@ -3,9 +3,15 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     fontSize: {
-      17: ["17px", "22px"],
-      14: ["14px", "20px"],
-      13: ["13px", "16px"],
+      "heading-h1": ["60px", "normal"],
+      "heading-h2": ["40px", "normal"],
+      "heading-h3": ["30px", "normal"],
+      "body-intro": ["24px", "normal"],
+      "body-main": ["20px", "normal"],
+      "headline-text": ["17px", "1.3"],
+      default: ["16px", "1.3"],
+      caption: ["15px", "1.3"],
+      small: ["13px", "1.3"],
     },
 
     letterSpacing: {
@@ -18,6 +24,12 @@ export default {
         blue: "#22D7FF",
         pink: "#C427FBFF",
       },
+
+      height: {
+        header: "calc(100vh - 122px)",
+        "header-mobile": "calc(100vh - 117px - 56px)",
+      },
+
       backgroundImage: {
         "lg-main": "linear-gradient(168deg, #2B2F53 1.62%, #1C1B33 95.72%)",
         "lg-sec": "linear-gradient(135deg, #293462 0%, #343E61 100%)",
@@ -38,7 +50,7 @@ export default {
 
       boxShadow: {
         "bs-body": "-10px 30px 80px 0px rgba(59, 38, 123, 0.70)",
-        "bs-filter": "0px 15px 20px -5px rgba(0, 0, 0, 0.40)",
+        "bs-filter": "0px 15px 20px -10px rgba(0, 0, 0, 0.30)",
         "bs-aside": "15px 0px 20px -5px rgba(0, 0, 0, 0.40)",
         "bs-aside-m": "0px -15px 20px -5px rgba(0, 0, 0, 0.30)",
       },
@@ -57,10 +69,8 @@ export default {
       },
 
       gridTemplateColumns: {
-        "main-d": "248px, 1fr",
-        "main-t": "200px, 1fr",
-        "item-info": "auto, 1fr",
-        "video-items": "repeat(auto-fit, minmax(300px, 1fr))",
+        "video-items": "repeat(auto-fit, minmax(320px, 1fr))",
+        "video-items-m": "repeat(auto-fit, minmax(290px, 1fr))",
       },
       gridTemplateRows: {
         "main-d": "auto, 1fr",
@@ -71,6 +81,13 @@ export default {
           "0%": { transform: "rotate(0deg)" },
           "100%": { transform: "rotate(360deg)" },
         },
+        "slide-content-top": {
+          "0%": { transform: "translateY(-5px)", opacity: 0 },
+          "100%": { transform: "translateY(0)", opacity: 1 },
+        },
+      },
+      animation: {
+        "content-wrapper": "slide-content-top 0.4s ease both",
       },
     },
   },

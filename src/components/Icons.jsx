@@ -54,15 +54,11 @@ export const Notification = ({ className, color }) => (
   </svg>
 );
 
-export const Round = ({ size, className, rotate, active }) => (
+export const Round = ({ size, className, visible }) => (
   <svg
     className={`${className ? className : ""}
-    ${
-      !rotate
-        ? "pause group-hover:play animate-spin transition duration-500"
-        : "animate-spin play"
-    }
-    ${!active ? "opacity-0" : "opacity-100"}`}
+    pause group-hover:play animate-spin transition duration-500
+    ${visible === true ? "opacity-100" : "opacity-0"}`}
     xmlns="http://www.w3.org/2000/svg"
     height={size ? size : "24"}
     width={size ? size : "24"}
@@ -224,7 +220,7 @@ export const Logo = ({ className }) => (
   </svg>
 );
 
-export const Home = ({ className, color }) => (
+export const IHome = ({ className, color }) => (
   <svg
     className={className ? className : ""}
     viewBox="0 0 24 24"
@@ -238,7 +234,7 @@ export const Home = ({ className, color }) => (
   </svg>
 );
 
-export const Shorts = ({ className, color }) => (
+export const IShorts = ({ className, color }) => (
   <svg
     className={className ? className : ""}
     viewBox="0 0 24 24"
