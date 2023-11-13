@@ -309,8 +309,19 @@ body {
     background: linear-gradient(90deg, #C427FBFF 50%, rgba(72, 49, 157, 1) 100%) !important;
   }
 
+  .vjs-progress-control {
+    @media (max-width: 768px) {
+      padding: toRem(0);
+    }
+  }
+
   .vjs-control-bar {
     height: toRem(80) !important;
+    @media (max-width: 768px) {
+      height: toRem(60) !important;
+      padding-left: 0;
+      padding-right: 0;
+    }
   }
 
   .vjs-volume-panel {
