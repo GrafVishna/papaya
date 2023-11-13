@@ -10,7 +10,7 @@ import {
   Videos,
 } from "../../Icons.jsx";
 import NavItem from "./NavItem.jsx";
-import UseScroll from "../../../hooks/UseScroll.jsx";
+import UseScroll from "../../../hooks/useScroll.jsx";
 
 export default function AsideDesktop({ ref }) {
   const asideRef = useRef();

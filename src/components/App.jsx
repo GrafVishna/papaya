@@ -7,6 +7,8 @@ import Subscriptions from "./Pages/Subscriptions/Subscriptions.jsx";
 import Music from "./Pages/Music/Music.jsx";
 import NotFound from "./Pages/NotFound/NotFound.jsx";
 import PageWrapper from "./Wrappers/PageWrapper.jsx";
+import VideoLayout from "./Layouts/VideoLayout.jsx";
+import Video from "./Video.jsx";
 
 function App() {
   return (
@@ -19,6 +21,9 @@ function App() {
             <Route path="subscriptions" element={<Subscriptions />} />
             <Route path="music" element={<Music />} />
             <Route path="*" element={<NotFound />} />
+          </Route>
+          <Route path="/video/:videoId" element={<VideoLayout />}>
+            <Route index element={<Video />} />
           </Route>
         </Routes>
       </PageWrapper>

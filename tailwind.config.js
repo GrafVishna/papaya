@@ -39,13 +39,23 @@ export default {
           "linear-gradient(180deg, rgba(196, 39, 251, 0.00) 0%, rgba(196, 39, 251, 0.20) 100%)",
         "lg-card":
           "linear-gradient(180deg, rgba(72, 49, 157, 0.20) 18.75%, rgba(72, 49, 157, 0.00) 100%)",
+        "lg-aside-card":
+          "linear-gradient(90deg, rgba(72, 49, 157, 0.20) 18.75%, rgba(72, 49, 157, 0.00) 100%)",
+        "lg-decryption":
+          "radial-gradient(50% 128.57% at 50% -36.61%, rgba(128, 21, 167, 20%) 0%, rgba(97, 54, 144, 0.00) 100%)",
         "lg-line":
           "linear-gradient(270deg, rgba(255, 255, 255, 0.00) 0%, rgba(255, 255, 255, 0.30) 50.4%, rgba(255, 255, 255, 0.00) 96.77%)",
         "lg-f-line":
           "linear-gradient(180deg, rgba(196, 39, 251, 0.00) 0%, rgba(196, 39, 251, 0.20) 82.14%)",
+        "lg-subscribe":
+          "linear-gradient(180deg, rgba(196, 39, 251, 0.00) 0%, rgba(196, 39, 251, 0.50) 92.14%)",
         "lg-body": "linear-gradient(180deg, #2B2F53 3.16%, #1D1C34 40.05%)",
         "video-card":
           "linear-gradient(180deg, rgba(72, 49, 157, 0.20) 18.75%, rgba(72, 49, 157, 0.00) 100%)",
+        "video-subscription":
+          "linear-gradient(0deg, rgba(72, 49, 157, 0.20) 18.75%, rgba(72, 49, 157, 0.00) 100%)",
+        "video-card-border":
+          "linear-gradient(90deg, rgba(256, 256, 256, 0.20) 50%, rgba(256, 256, 256, 0.00) 100%)",
       },
 
       boxShadow: {
@@ -61,6 +71,7 @@ export default {
         tablet: "991px",
         "tablet-big": "1100px",
         desktop: "1420px",
+        "desktop-big": "1750px",
       },
 
       padding: {

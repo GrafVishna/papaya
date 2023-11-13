@@ -1,9 +1,13 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
-export default function GridElementTitle({ content }) {
+export default function GridElementTitle({ content, link }) {
   return (
-    <h3 className="text-default tablet:text-headline-text font-bold cursor-pointer tracking-minus-03 flex-auto h-full">
+    <NavLink
+      to={link}
+      className="text-default tablet:text-headline-text font-bold cursor-pointer tracking-minus-03 flex-auto h-full"
+    >
       {content}
-    </h3>
+    </NavLink>
   );
 }

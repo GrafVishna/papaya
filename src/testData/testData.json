@@ -1,110 +1,74 @@
 [
   {
-    "poster": "./img/img1.jpg",
-    "avatar": "./img/avatars/u1.jpg",
+    "id": 1,
+    "poster": "videos/poster1.jpg",
+    "video": "videos/video1.mp4",
+    "avatar": "img/avatars/u1.jpg",
     "time": "4:30",
-    "title": "Design and Prototype an App with Play - Full 3-hour Course",
-    "channel": "Designcode",
+    "title": "Ice Nine Kills - Meat & Greet (Official Music Video)",
+    "channel": "\nIce Nine Kills",
     "views": "14000",
-    "date": "20.9.2023"
+    "date": "20.9.2023",
+    "decryption": "Ice Nine Kills' official music video for \"Meat & Greet\" from the deluxe album, Welcome to Horrorwood: Under Fire - available now on Fearless Records at http://found.ee/WTH_UnderFire\n\nWatch the conclusion of the Horrorwood saga in Part 2: • Ice Nine Kills - Meat & Greet: PART 2...  "
   },
   {
-    "poster": "./img/img2.jpg",
-    "avatar": "./img/avatars/u2.jpg",
+    "id": 2,
+    "poster": "videos/poster2.jpg",
+    "video": "videos/video2.mp4",
+    "avatar": "img/avatars/u2.jpg",
     "time": "4:30",
-    "title": "Create 3D Site with Spline and React - Full Course",
-    "channel": "Designcode",
+    "title": "Motionless In White - Voices [OFFICIAL VIDEO]",
+    "channel": "Motionless In White",
     "views": "14000",
-    "date": "20.9.2023"
+    "date": "20.9.2023",
+    "decryption": "Subscribe to our Youtube channel: https://miw.lnk.to/subscribe\n\nMotionless In White's official video for 'Voices' from the new record Graveyard Shift - available now on Roadrunner Records. "
   },
   {
-    "poster": "./img/img3.jpg",
-    "avatar": "./img/avatars/u3.jpg",
+    "id": 3,
+    "poster": "videos/poster3.jpg",
+    "video": "videos/video3.mp4",
+    "avatar": "img/avatars/u3.jpg",
     "time": "4:30",
-    "title": "Design and Prototype an App with Play - Full 3-hour Course",
-    "channel": "Designcode",
+    "title": "Falling In Reverse - \"Voices In My Head\"",
+    "channel": "Epitaph Records",
     "views": "14000",
-    "date": "20.9.2023"
+    "date": "20.9.2023",
+    "decryption": "Written by Ronnie Radke, Tyler Smyth, Cody Quistad, and Charles Massabo\n\nThis video features a panorama of Night City as depicted in the game Cyberpunk 2077. CD PROJEKT®, Cyberpunk®, Cyberpunk 2077® are registered trademarks of CD PROJEKT S.A. © 2022 CD PROJEKT S.A. All rights reserved."
   },
   {
-    "poster": "./img/img4.jpg",
-    "avatar": "./img/avatars/u4.jpg",
+    "id": 4,
+    "poster": "videos/poster4.jpg",
+    "avatar": "img/avatars/u4.jpg",
+    "video": "videos/video4.mp4",
     "time": "4:30",
-    "title": "Design and Prototype an App with Play - Full 3-hour Course",
-    "channel": "Designcode",
+    "title": "Electric Callboy - Everytime We Touch (TEKKNO Version) OFFICIAL VIDEO",
+    "channel": "Electric Callboy",
     "views": "14000",
-    "date": "20.9.2023"
+    "date": "20.9.2023",
+    "decryption": "Name des Originalwerkes: EVERYTIME WE TOUCH\nOriginalurheber: MAGGIE REILLY, PETER RISAVY, STUART MACKILLOP\nPublished by Sony Music Publishing\nProduced by Daniel Haniß, Pascal Schillo, Kevin Ratajczak\nProducer: Dasmo & Mania Music\nMixed by Daniel Haniß\nMastered by Christoph Wieczorek ( \n\n / sawdustrec  )\n\nP&C 2023 by Electric Callboy under Exclusive License to Century Media / Sony\nMusic"
   },
   {
-    "poster": "./img/img5.jpg",
-    "avatar": "./img/avatars/u5.jpg",
+    "id": 5,
+    "poster": "videos/poster5.jpg",
+    "avatar": "img/avatars/u5.jpg",
+    "video": "videos/video5.mp4",
     "time": "4:30",
-    "title": "Design and Prototype an App with Play - Full 3-hour Course",
-    "channel": "Designcode",
+    "title": "ELECTRIC CALLBOY - The Scene feat. Fronz (OFFICIAL VIDEO)",
+    "channel": "Century Media Records",
     "views": "14000",
-    "date": "20.9.2023"
+    "date": "20.9.2023",
+    "decryption": "ELECTRIC CALLBOY - The Scene - Taken from the album \"The Scene\" out now!\nPre-Order / Download / Stream the album!  \n// https://www.eskimocallboy.com/ //"
   },
   {
-    "poster": "./img/img6.jpg",
-    "avatar": "./img/avatars/u6.jpg",
+    "id": 6,
+    "poster": "videos/poster6.jpg",
+    "avatar": "img/avatars/u6.jpg",
+    "video": "videos/video6.mp4",
     "time": "4:30",
-    "title": "Design and Prototype an App with Play - Full 3-hour Course",
-    "channel": "Designcode",
+    "title": "(Pardon Me, I Have To Go Now) - Music Video 【HANABIE.】",
+    "channel": "(HANABIE. Official YouTube)",
     "views": "14000",
-    "date": "20.9.2023"
-  },
-  {
-    "poster": "./img/img1.jpg",
-    "avatar": "./img/avatars/u1.jpg",
-    "time": "4:30",
-    "title": "Design and Prototype an App with Play - Full 3-hour Course",
-    "channel": "Designcode",
-    "views": "14000",
-    "date": "20.9.2023"
-  },
-  {
-    "poster": "./img/img2.jpg",
-    "avatar": "./img/avatars/u2.jpg",
-    "time": "4:30",
-    "title": "Create 3D Site with Spline and React - Full Course",
-    "channel": "Designcode",
-    "views": "14000",
-    "date": "20.9.2023"
-  },
-  {
-    "poster": "./img/img3.jpg",
-    "avatar": "./img/avatars/u3.jpg",
-    "time": "4:30",
-    "title": "Design and Prototype an App with Play - Full 3-hour Course",
-    "channel": "Designcode",
-    "views": "14000",
-    "date": "20.9.2023"
-  },
-  {
-    "poster": "./img/img4.jpg",
-    "avatar": "./img/avatars/u4.jpg",
-    "time": "4:30",
-    "title": "Design and Prototype an App with Play - Full 3-hour Course",
-    "channel": "Designcode",
-    "views": "14000",
-    "date": "20.9.2023"
-  },
-  {
-    "poster": "./img/img5.jpg",
-    "avatar": "./img/avatars/u5.jpg",
-    "time": "4:30",
-    "title": "Design and Prototype an App with Play - Full 3-hour Course",
-    "channel": "Designcode",
-    "views": "14000",
-    "date": "20.9.2023"
-  },
-  {
-    "poster": "./img/img6.jpg",
-    "avatar": "./img/avatars/u6.jpg",
-    "time": "4:30",
-    "title": "Design and Prototype an App with Play - Full 3-hour Course",
-    "channel": "Designcode",
-    "views": "14000",
-    "date": "20.9.2023"
+    "date": "20.9.2023",
+    "decryption": "\nLyrics : Yukina, Matsuri\nMusic : Matsuri, Yukina\nArrangement : YUYOYUPPE, Matsuri\nMixing : MEG\n\n\n＜Music Video＞\nDirector : Takuya Oyama (VANLI)\nProducer : Mao Suzuki (P.I.C.S)\nHair & Make-up : Erika Yoshida\nHair & Make-up Assistant : Hitomi Mieda\nStylist : Go Momose, Nozomi Kenmochi\nStylist Assistant : Moeka Konno\nProduction Manager : Koichi Iwamoto\n\nStarring : Koji Kurosawa\nVoice actor : Aki Toyosaki"
   }
 ]

@@ -9,7 +9,7 @@ import {
   Subscriptions,
   Videos,
 } from "../../Icons.jsx";
-import { useMatchMedia } from "../../../hooks/use-match-media.jsx";
+import { useMatchMedia } from "../../../hooks/useMatchMedia.jsx";
 import AsideMobile from "./AsideMobile.jsx";
 import AsideDesktop from "./AsideDesktop.jsx";
 import { Route, Routes } from "react-router-dom";

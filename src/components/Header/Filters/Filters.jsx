@@ -2,9 +2,9 @@ import React, { useRef } from "react";
 import { NavLine, NavLineFull } from "../../Icons.jsx";
 import SimpleBar from "simplebar-react";
 import "simplebar-react/dist/simplebar.min.css";
-import UseScroll from "../../../hooks/UseScroll.jsx";
+import UseScroll from "../../../hooks/useScroll.jsx";
 
-export default function Filters() {
+export default function Filters({ className }) {
   const filtersRef = useRef();
   UseScroll(filtersRef);
 
@@ -20,7 +20,9 @@ export default function Filters() {
   return (
     <div
       ref={filtersRef}
-      className="tablet:py-2 py-1 relative shadow-bs-filter top-filter tablet:z-10 z-30 backdrop-blur overflow-visible"
+      className={`tablet:py-2 py-1 shadow-bs-filter top-filter tablet:z-10 z-30 backdrop-blur overflow-visible ${
+        className && className
+      }`}
     >
       <NavLineFull
         className={`${before}  absolute blur-xl bottom-0 left-0 w-full pointer-events-none`}
