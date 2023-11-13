@@ -8,10 +8,10 @@ export default {
       "heading-h3": ["30px", "normal"],
       "body-intro": ["24px", "normal"],
       "body-main": ["20px", "normal"],
-      "headline-text": ["17px", "1.3"],
-      default: ["16px", "1.3"],
-      caption: ["15px", "1.3"],
-      small: ["13px", "1.3"],
+      "headline-text": ["17px", "normal"],
+      default: ["16px", "normal"],
+      caption: ["15px", "normal"],
+      small: ["13px", "normal"],
     },
 
     letterSpacing: {

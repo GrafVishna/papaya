@@ -13,20 +13,20 @@ function Header({ page }) {
     "(min-width: 1200px)",
   ];
   const { isMobile, isTablet } = useMatchMedia(queries);
-  const isPage = page === "video";
+
+  const isVideoPage = page === "video";
+  const pageClassHeader = `${
+    isVideoPage ? "left-0" : "tablet:left-[200px] tablet-big:left-[240px]"
+  }`;
   return (
     <header
-      className={`flex flex-col fixed top-0 w-screen tablet:w-auto ${
-        !isPage ? "tablet:left-[200px] tablet-big:left-[240px]" : "left-0 "
-      }  right-0 z-30`}
+      className={`flex flex-col fixed top-0 w-screen tablet:w-auto right-0 z-30 ${pageClassHeader}`}
     >
       <div
-        className={`${
-          isPage && "desktop:pl-8 tablet-big:pl-4 pl-4"
-        } flex items-center justify-between desktop-big:pr-8 tablet-big:pr-6 pr-4 py-3 mobile-s:gap-5 gap-3`}
+        className={`flex items-center justify-between desktop:px-8 tablet-big:px-4 px-3 py-3 mobile-s:gap-5 gap-3`}
       >
-        {isMobile || isPage ? (
-          <NavLink className="py-3.5 pr-4 " to={"/"}>
+        {isMobile || isVideoPage ? (
+          <NavLink className="py-3.5" to={"/"}>
             <Logo className={`${isMobile ? "w-16" : "w-24"}`} />
           </NavLink>
         ) : (

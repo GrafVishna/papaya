@@ -30,7 +30,7 @@ export default function CurrentVideo({ videoId }) {
       </div>
 
       <div>
-        <div className="pt-8 pb-12">
+        <div className="mobile:pt-8 pt-4 tablet-big:pb-12 pb-20">
           <VideoTitle content={videoTitle} />
           <div className="py-4 flex desktop-big:flex-nowrap mobile:flex-row flex-col flex-wrap gap-6 justify-between mobile:items-center">
             <InfoChannel data={dataChannel} />
