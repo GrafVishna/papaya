@@ -1,12 +1,11 @@
 import React, { useRef } from "react";
-import CurrentVideo from "./CurrentVideo/CurrentVideo.jsx";
-import AsideVideo from "./AsideVideo/AsideVideo.jsx";
-import ContentWrapperVideoPage from "./Wrappers/ContentWrapperVideoPage.jsx";
-import UseScroll from "../hooks/useScroll.jsx";
-import Header from "./Header/Header.jsx";
+import CurrentVideo from "../../CurrentVideo/CurrentVideo.jsx";
+import AsideVideo from "../../AsideVideo/AsideVideo.jsx";
+import ContentWrapperVideoPage from "../../Wrappers/ContentWrapperVideoPage.jsx";
+import UseScroll from "../../../hooks/useScroll.jsx";
 
 import { useParams } from "react-router-dom";
-import { useMatchMedia } from "../hooks/useMatchMedia.jsx";
+import { useMatchMedia } from "../../../hooks/useMatchMedia.jsx";
 
 export default function Video() {
   const bodyRef = useRef();

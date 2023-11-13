@@ -28,7 +28,7 @@ export default function GridElement({ data }) {
         <GridElementImage image={videoPoster} alt={videoTitle} />
         <Time time={videoTime} />
       </NavLink>
-      <div className="grid grid-cols-[auto_1fr] gap-4 tablet:px-6 px-3 mobile:py-4 py-6 bg-video-card flex-auto">
+      <div className="grid grid-cols-[auto_1fr] gap-4 tablet:px-6 px-3 mobile:py-6 py-4 bg-video-card flex-auto">
         <span className="block w-8 h-8 rounded-full cursor-pointer overflow-hidden mt-0.5">
           <img src={channelAvatar} alt={channelName} />
         </span>

@@ -8,7 +8,7 @@ import Music from "./Pages/Music/Music.jsx";
 import NotFound from "./Pages/NotFound/NotFound.jsx";
 import PageWrapper from "./Wrappers/PageWrapper.jsx";
 import VideoLayout from "./Layouts/VideoLayout.jsx";
-import Video from "./Video.jsx";
+import Video from "./Pages/Video/Video.jsx";
 
 function App() {
   return (

@@ -8,10 +8,12 @@ export default function ContentWrapper({ children }) {
 
   return (
     <>
-      <main className="body tablet:ml-[200px] tablet-big:ml-[240px] tablet:mt-[66px] mt-[69px] tablet:h-header h-header-mobile  tablet:mb-0 mb-[56px]">
+      <main className="body tablet:ml-[200px] tablet-big:ml-[240px] tablet:mt-[66px] mt-[69px] tablet:h-header h-header-mobile tablet:mb-0 mb-[56px]">
         <Filters />
         <div ref={bodyRef} className="h-full py-8">
-          <div className="px-4 mobile:px-8 desktop:px-14">{children}</div>
+          <div className="px-4 mobile:px-8  desktop:px-14 tablet:pb-0 pb-10">
+            {children}
+          </div>
         </div>
       </main>
     </>
