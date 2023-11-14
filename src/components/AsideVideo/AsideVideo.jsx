@@ -12,7 +12,7 @@ export default function AsideVideo({ videoId }) {
     <div className="aside-video desktop:pl-5 pl-3 py-1 overflow-hidden pt-14 tablet:min-w-[340px] desktop:min-w-[460px] relative">
       <Filters className="absolute w-full top-0" />
       <div className="max-h-full pt-4" ref={asideVideoRef}>
-        <ul className="flex flex-col gap-4">
+        <ul className="flex flex-col gap-4 pb-8">
           {data.map((element, index) => (
             <AsideVideoElement key={index} data={element} index={index} />
           ))}
