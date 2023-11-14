@@ -22,9 +22,9 @@ function App() {
             <Route path="music" element={<Music />} />
             <Route path="*" element={<NotFound />} />
           </Route>
-          <Route path="/video/:videoId" element={<VideoLayout />}>
-            <Route index element={<Video />} />
-          </Route>
+          {/*<Route path="/video/:videoId" element={<VideoLayout />}>*/}
+          {/*  <Route index element={<Video />} />*/}
+          {/*</Route>*/}
         </Routes>
       </PageWrapper>
     </>
