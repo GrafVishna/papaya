@@ -8,21 +8,20 @@ import { useParams } from "react-router-dom";
 import { useMatchMedia } from "../../../hooks/useMatchMedia.jsx";
 
 export default function Video() {
-  const bodyRef = useRef();
-  UseScroll(bodyRef);
-
   const queries = ["(max-width: 1100px)", "(min-width: 1100px)"];
   const { isMobile, isTablet } = useMatchMedia(queries);
   const { videoId } = useParams();
-
-  const currentVideo = videoId - 1;
+  const bodyRef = useRef();
+  UseScroll(bodyRef);
   return (
     <>
       <ContentWrapperVideoPage>
-        <div ref={bodyRef} className="py-1 desktop:pr-8 tablet-big:pr-4 pr-3">
-          <CurrentVideo videoId={currentVideo} />
+        <div ref={bodyRef}>
+          <div className="py-1 desktop:pr-8 tablet-big:pr-4 pr-3 overflow-hidden">
+            <CurrentVideo videoId={videoId} />
+          </div>
         </div>
-        {isTablet && <AsideVideo videoId={currentVideo} />}
+        {isTablet && <AsideVideo videoId={videoId} />}
       </ContentWrapperVideoPage>
     </>
   );

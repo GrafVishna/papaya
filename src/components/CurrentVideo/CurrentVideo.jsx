@@ -1,5 +1,4 @@
-import React from "react";
-import data from "../../testData/testData.json";
+import React, { useEffect, useState } from "react";
 import SubscriptionsButtons from "./SubscriptionsButtons/SubscriptionsButtons.jsx";
 import InfoChannel from "./InfoChannel/InfoChannel.jsx";
 import VideoActions from "./VideoActions/VideoActions.jsx";
@@ -8,25 +7,45 @@ import VideoDescription from "./VideoDescription/VideoDescription.jsx";
 import VideoComments from "./VideoComments/VideoComments.jsx";
 
 import VideoPlayer from "../VideoPlayer/VideoPlayer.jsx";
-import { MAIN_URL } from "../../store/GlobalURL.js";
+import { getFileUrl } from "../../store/api/getVideo.js";
+import { getCurrentPost } from "../../store/api/getCurrentPost.js";
+import { getPoster } from "../../store/api/getPoster.js";
+import { getAllPostData } from "../../store/api/getAllPostData.js";
 
 export default function CurrentVideo({ videoId }) {
-  const video = data[videoId];
+  const [videoPost, setVideoPost] = useState(null);
 
-  const videoUrl = MAIN_URL + video.video;
-  const videoTitle = video.title;
-  const videoDecryption = video.decryption;
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await getAllPostData(videoId);
+        if (data) {
+          setVideoPost(data);
+        }
+      } catch (error) {
+        console.error("Error setting posts:", error);
+      }
+    };
 
-  const dataChannel = {
-    avatar: MAIN_URL + video.avatar,
-    alt: video.title,
-    channel: video.channel,
-  };
+    fetchData();
+  }, [videoId]);
 
+  if (!videoPost) {
+    return null;
+  }
+
+  const videoLink = videoPost?.videoData?.guid?.rendered;
+  const videoTitle = videoPost?.postData?.title.rendered;
+  const videoDescription = videoPost?.postData?.acf?.video_descryption;
+  const posterImage =
+    videoPost?.posterData?.media_details?.sizes?.large?.source_url;
+
+  const dataChannel = videoPost?.authorData;
+  console.log(videoPost.videoData);
   return (
     <div>
       <div className="relative">
-        <VideoPlayer src={videoUrl} poster={data[videoId].poster} />
+        <VideoPlayer src={videoLink} poster={posterImage} />
       </div>
 
       <div>
@@ -39,8 +58,8 @@ export default function CurrentVideo({ videoId }) {
               <VideoActions likes="899998" />
             </div>
           </div>
-          <VideoDescription decryption={videoDecryption} />
-          <VideoComments data={video} />
+          <VideoDescription description={videoDescription} />
+          {/*<VideoComments data={video} />*/}
         </div>
       </div>
     </div>

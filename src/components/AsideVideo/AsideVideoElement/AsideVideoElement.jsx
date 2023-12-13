@@ -1,17 +1,19 @@
 import React, { useState } from "react";
 import useTextTruncation from "../../../hooks/useTextTruncation.jsx";
 import { NavLink } from "react-router-dom";
-import { MAIN_URL } from "../../../store/GlobalURL.js";
+import { MAIN_URL, MAIN_URL_API } from "../../../store/GlobalURL.js";
+import Author from "../../Author/Author.jsx";
 
 export default function AsideVideoElement({ data }) {
-  const [text, setText] = useState(data.title);
-  const maxLength = 40;
-  const [truncatedText] = useTextTruncation(text, maxLength);
+  // const [text, setText] = useState(data.title);
+  // const maxLength = 40;
+  // const [truncatedText] = useTextTruncation(text, maxLength);
 
   const videoUrl = MAIN_URL + "video/" + data.id;
-  const videoPoster = MAIN_URL + data.poster;
-  const videoChannel = data.channel;
-  const videoTime = data.time;
+  const videoTitle = data.title.rendered;
+  const videoPoster =
+    data["_embedded"]["wp:featuredmedia"][0]["media_details"].sizes.medium
+      .source_url;
 
   return (
     <li className="aside-video-card rounded-2xl overflow-hidden border-l-[1px] border-white/10 pr-2">
@@ -23,7 +25,7 @@ export default function AsideVideoElement({ data }) {
             alt=""
           />
           <span className="absolute z-20 px-1 py-0.5 bg-black bottom-2 right-2 border-0 ">
-            {videoTime}
+            {/*{videoTime}*/}
           </span>
         </NavLink>
         <div className="py-2 pl-2 pr-2 bg-lg-aside-card">
@@ -31,10 +33,12 @@ export default function AsideVideoElement({ data }) {
             to={videoUrl}
             className="font-bold desktop:text-default text-small mb-1"
           >
-            {truncatedText}
+            {videoTitle}
           </NavLink>
           <div className="opacity-60 desktop:text-caption text-small">
-            <div>{videoChannel}</div>
+            <div>
+              <Author type="name" authorId={data.author} />
+            </div>
             <span>14</span> views - <span>1</span> month ago
           </div>
         </div>

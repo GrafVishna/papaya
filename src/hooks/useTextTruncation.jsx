@@ -8,12 +8,26 @@ const useTextTruncation = (initialText, maxLength) => {
   );
 
   const truncateText = (text) => {
-    text.length > maxLength
-      ? setTruncatedText(text.substring(0, maxLength) + "...")
-      : setTruncatedText(text);
+    const truncated =
+      text.length > maxLength ? text.substring(0, maxLength) + "..." : text;
+
+    setTruncatedText(truncated);
+
+    return {
+      truncatedText: truncated,
+      isTruncated: text.length > maxLength,
+    };
   };
 
-  return [truncatedText];
+  const resetText = () => {
+    setTruncatedText(initialText);
+  };
+
+  return {
+    truncatedText,
+    truncateText,
+    resetText,
+  };
 };
 
 export default useTextTruncation;

@@ -1,8 +1,8 @@
 import React from "react";
-import { MAIN_URL } from "../../../store/GlobalURL.js";
+import { MAIN_URL_API } from "../../../store/GlobalURL.js";
 
 export default function VideoComments({ data }) {
-  const avatar = MAIN_URL + data.avatar;
+  const avatar = MAIN_URL_API + data.avatar;
   const channel = data.channel;
 
   return (

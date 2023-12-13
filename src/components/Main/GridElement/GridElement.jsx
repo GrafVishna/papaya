@@ -1,26 +1,42 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import GridElementTitle from "./GridElementTitle/GridElementTitle.jsx";
 import GridElementImage from "./GridElementImage/GridElementImage.jsx";
 import Time from "./Time/Time.jsx";
 import GridElementInfo from "./GridElementInfo/GridElementInfo.jsx";
 import { NavLink } from "react-router-dom";
+// import useTextTruncation from "../../../hooks/useTextTruncation.jsx";
+import { getFileUrl } from "../../../store/api/getVideo.js";
+import Author from "../../Author/Author.jsx";
 import { MAIN_URL } from "../../../store/GlobalURL.js";
-import useTextTruncation from "../../../hooks/useTextTruncation.jsx";
 
-export default function GridElement({ data }) {
-  const videoUrl = MAIN_URL + "video/" + data.id;
-  const videoPoster = MAIN_URL + data.poster;
-  const channelAvatar = MAIN_URL + data.avatar;
-  const channelName = data.channel;
-  const videoTitle = data.title;
-  const videoTime = data.time;
+export default function GridElement({ videoData }) {
+  const videoId = videoData.acf["video_file"];
+  const videoTitle = videoData.title.rendered;
+  const videoDescryption = videoData.acf["video_descryption"];
+  const videoPoster =
+    videoData["_embedded"]["wp:featuredmedia"][0]["media_details"].sizes.medium
+      .source_url;
 
-  const [title, setTitle] = useState(videoTitle);
-  const maxLengthTitle = 40;
-  const [truncatedTitle] = useTextTruncation(title, maxLengthTitle);
-  const [channel, setChannel] = useState(channelName);
-  const maxLengthChannel = 30;
-  const [truncatedChannel] = useTextTruncation(channel, maxLengthChannel);
+  const [video, setVideo] = useState(null);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await getFileUrl(videoId);
+        setVideo(data);
+      } catch (error) {
+        console.error("Error setting posts:", error);
+      }
+    };
+
+    fetchData();
+  }, [videoId]);
+
+  if (!video) {
+    return null;
+  }
+
+  const videoTime = video["media_details"]["length_formatted"];
+  const videoUrl = MAIN_URL + "video/" + videoData.id;
 
   return (
     <div className="rounded-2xl flex flex-col overflow-hidden relative before:absolute before:top-0 before:left-0 before:w-full before:pointer-events-none before:h-full before:z-10 before:border-b-0 before:rounded-2xl before:border-[1px] before:mix-blend-overlay before:border-white/5">
@@ -29,15 +45,11 @@ export default function GridElement({ data }) {
         <Time time={videoTime} />
       </NavLink>
       <div className="grid grid-cols-[auto_1fr] gap-4 tablet:px-6 px-3 mobile:py-6 py-4 bg-video-card flex-auto">
-        <span className="block w-8 h-8 rounded-full cursor-pointer overflow-hidden mt-0.5">
-          <img src={channelAvatar} alt={channelName} />
-        </span>
+        <Author type="avatar" authorId={videoData.author} />
         <div className="flex flex-col gap-2">
-          <GridElementTitle link={videoUrl} content={truncatedTitle} />
+          <GridElementTitle link={videoUrl} content={videoTitle} />
           <div className="opacity-60 tracking-minus-04">
-            <span className="uppercase mb-0.5 text-caption">
-              {truncatedChannel}
-            </span>
+            <Author type="name" authorId={videoData.author} />
             <GridElementInfo views="14" date="1" />
           </div>
         </div>

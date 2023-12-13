@@ -80,8 +80,10 @@ export default {
       },
 
       gridTemplateColumns: {
-        "video-items": "repeat(auto-fit, minmax(320px, 1fr))",
-        "video-items-m": "repeat(auto-fit, minmax(290px, 1fr))",
+        "video-items": "1fr 1fr 1fr 1fr",
+        "video-items-tb": "1fr 1fr 1fr",
+        "video-items-t": "1fr 1fr",
+        "video-items-m": "1fr",
       },
       gridTemplateRows: {
         "main-d": "auto, 1fr",
@@ -102,5 +104,5 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [require("daisyui")],
 };
