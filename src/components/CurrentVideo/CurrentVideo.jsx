@@ -7,10 +7,10 @@ import VideoDescription from "./VideoDescription/VideoDescription.jsx";
 import VideoComments from "./VideoComments/VideoComments.jsx";
 
 import VideoPlayer from "../VideoPlayer/VideoPlayer.jsx";
-import { getFileUrl } from "../../store/api/getVideo.js";
-import { getCurrentPost } from "../../store/api/getCurrentPost.js";
-import { getPoster } from "../../store/api/getPoster.js";
-import { getAllPostData } from "../../store/api/getAllPostData.js";
+import { getFileUrl } from "../../apiWP/getVideo.js";
+import { getCurrentPost } from "../../apiWP/getCurrentPost.js";
+import { getPoster } from "../../apiWP/getPoster.js";
+import { getAllPostData } from "../../apiWP/getAllPostData.js";
 
 export default function CurrentVideo({ videoId }) {
   const [videoPost, setVideoPost] = useState(null);

@@ -43,6 +43,8 @@ export default {
           "linear-gradient(90deg, rgba(72, 49, 157, 0.20) 18.75%, rgba(72, 49, 157, 0.00) 100%)",
         "lg-decryption":
           "radial-gradient(50% 128.57% at 50% -36.61%, rgba(128, 21, 167, 20%) 0%, rgba(97, 54, 144, 0.00) 100%)",
+        "lg-decryption-rotate":
+          "radial-gradient(50% 128.57% at 50% 120.61%, rgba(128, 21, 167, 20%) 0%, rgba(97, 54, 144, 0.00) 100%)",
         "lg-line":
           "linear-gradient(270deg, rgba(255, 255, 255, 0.00) 0%, rgba(255, 255, 255, 0.30) 50.4%, rgba(255, 255, 255, 0.00) 96.77%)",
         "lg-f-line":
@@ -63,6 +65,8 @@ export default {
         "bs-filter": "0px 15px 20px -10px rgba(0, 0, 0, 0.30)",
         "bs-aside": "15px 0px 20px -5px rgba(0, 0, 0, 0.40)",
         "bs-aside-m": "0px -15px 20px -5px rgba(0, 0, 0, 0.30)",
+        "bs-auth-dropdown": "-10px -5px 20px -5px rgba(0, 0, 0, 0.40)",
+        "bs-auth-modal": "0px 30px 60px -10px rgba(59, 38, 123, 0.70)",
       },
 
       screens: {

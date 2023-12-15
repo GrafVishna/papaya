@@ -5,9 +5,9 @@ import Time from "./Time/Time.jsx";
 import GridElementInfo from "./GridElementInfo/GridElementInfo.jsx";
 import { NavLink } from "react-router-dom";
 // import useTextTruncation from "../../../hooks/useTextTruncation.jsx";
-import { getFileUrl } from "../../../store/api/getVideo.js";
+import { getFileUrl } from "../../../apiWP/getVideo.js";
 import Author from "../../Author/Author.jsx";
-import { MAIN_URL } from "../../../store/GlobalURL.js";
+import { MAIN_URL } from "../../../api/GlobalURL.js";
 
 export default function GridElement({ videoData }) {
   const videoId = videoData.acf["video_file"];

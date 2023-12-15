@@ -20,7 +20,7 @@ function Header({ page }) {
   }`;
   return (
     <header
-      className={`flex flex-col fixed top-0 w-screen tablet:w-auto right-0 z-30 ${pageClassHeader}`}
+      className={`flex flex-col fixed top-0 w-screen tablet:w-auto right-0 tablet:z-30 z-[50] ${pageClassHeader}`}
     >
       <div
         className={`flex items-center justify-between desktop:px-8 tablet-big:px-4 px-3 py-3 mobile-s:gap-5 gap-3`}

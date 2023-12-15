@@ -1,5 +1,5 @@
 import React from "react";
-import { MAIN_URL_API } from "../../../store/GlobalURL.js";
+import { MAIN_URL_API } from "../../../api/GlobalURL.js";
 
 export default function VideoComments({ data }) {
   const avatar = MAIN_URL_API + data.avatar;

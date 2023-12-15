@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import useTextTruncation from "../../../hooks/useTextTruncation.jsx";
 import { NavLink } from "react-router-dom";
-import { MAIN_URL, MAIN_URL_API } from "../../../store/GlobalURL.js";
+import { MAIN_URL, MAIN_URL_API } from "../../../api/GlobalURL.js";
 import Author from "../../Author/Author.jsx";
 
 export default function AsideVideoElement({ data }) {

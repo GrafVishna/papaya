@@ -2,7 +2,7 @@ import GridElement from "../../Main/GridElement/GridElement.jsx";
 import "overlayscrollbars/styles/overlayscrollbars.css";
 
 import { useEffect, useState } from "react";
-import { fetchPosts } from "../../../store/api/getPosts.js";
+import { fetchPosts } from "../../../apiWP/getPosts.js";
 
 export default function Home() {
   const [posts, setPosts] = useState([]);

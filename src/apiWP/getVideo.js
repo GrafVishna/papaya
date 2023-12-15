@@ -1,4 +1,4 @@
-import { GET_VIDEO_API, MAIN_URL_API } from "../GlobalURL.js";
+import { GET_VIDEO_API, MAIN_URL_API } from "../api/GlobalURL.js";
 import axios from "axios";
 
 export const getFileUrl = async (fileId) => {

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getUser } from "../../store/api/getUser.js";
+import { getUser } from "../../apiWP/getUser.js";
 
 export default function Author({ authorId, type }) {
   const [author, setAuthor] = useState(null);

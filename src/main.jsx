@@ -4,11 +4,17 @@ import App from "./components/App.jsx";
 import "./index.scss";
 
 import { BrowserRouter, Outlet } from "react-router-dom";
+import { ModalProvider } from "./providers/ModalProvider.jsx";
+import { Provider } from "react-redux";
+import { store } from "./store/index.js";
+import "./firebase";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </React.StrictMode>,
+  <BrowserRouter>
+    <Provider store={store}>
+      <ModalProvider>
+        <App />
+      </ModalProvider>
+    </Provider>
+  </BrowserRouter>,
 );

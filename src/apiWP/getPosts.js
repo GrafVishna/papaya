@@ -1,6 +1,6 @@
-// api.js
+// apiWP.js
 import axios from "axios";
-import { GET_POST_API, MAIN_URL_API } from "../GlobalURL.js";
+import { GET_POST_API, MAIN_URL_API } from "../api/GlobalURL.js";
 
 export const fetchPosts = async (category) => {
   const postCategory = category;

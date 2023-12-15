@@ -178,6 +178,10 @@
       }
     }
   }
+
+  .shadow-input {
+    @apply input-bordered border-[0px] input-primary w-full bg-lg-body focus:outline-0 transition duration-[0.3s] focus:shadow-bs-filter;
+  }
 }
 
 

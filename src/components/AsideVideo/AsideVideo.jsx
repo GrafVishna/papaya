@@ -3,7 +3,7 @@ import UseScroll from "../../hooks/useScroll.jsx";
 import Filters from "../Header/Filters/Filters.jsx";
 import AsideVideoElement from "./AsideVideoElement/AsideVideoElement.jsx";
 import data from "../../testData/testData.json";
-import { fetchPosts } from "../../store/api/getPosts.js";
+import { fetchPosts } from "../../apiWP/getPosts.js";
 
 export default function AsideVideo({ videoId }) {
   const asideVideoRef = useRef();

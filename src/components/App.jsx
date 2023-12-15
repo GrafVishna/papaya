@@ -9,6 +9,7 @@ import NotFound from "./Pages/NotFound/NotFound.jsx";
 import PageWrapper from "./Wrappers/PageWrapper.jsx";
 import VideoLayout from "./Layouts/VideoLayout.jsx";
 import Video from "./Pages/Video/Video.jsx";
+import MyModal from "./AuthPopup/AuthPopup.jsx";
 
 // w
 function App() {
@@ -28,6 +29,7 @@ function App() {
           </Route>
         </Routes>
       </PageWrapper>
+      <MyModal />
     </>
   );
 }

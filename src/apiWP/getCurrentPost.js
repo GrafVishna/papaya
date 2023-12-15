@@ -1,5 +1,5 @@
-// api/getPosts.js
-import { GET_CURRENT_POST_API, MAIN_URL_API } from "../GlobalURL.js";
+// apiWP/getPosts.js
+import { GET_CURRENT_POST_API, MAIN_URL_API } from "../api/GlobalURL.js";
 import axios from "axios";
 
 export const getCurrentPost = async (postId) => {

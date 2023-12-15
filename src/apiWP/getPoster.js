@@ -1,4 +1,4 @@
-// api/getPosts.js
+// apiWP/getPosts.js
 import axios from "axios";
 
 export const getPoster = async (posterApiLink) => {

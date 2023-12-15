@@ -1,5 +1,5 @@
 import { Microphone, Search } from "../../Icons.jsx";
-import RButton from "../../RButton/RButton.jsx";
+import RButton from "../../buttons/RButton.jsx";
 
 export default function SearchInput() {
   return (

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_USER_API, MAIN_URL_API } from "../GlobalURL.js";
+import { GET_USER_API, MAIN_URL_API } from "../api/GlobalURL.js";
 
 export const getUser = async (userId) => {
   try {
