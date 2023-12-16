@@ -8,11 +8,17 @@ export const AuthProvider = ({ children }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const authToken = localStorage.getItem("authToken");
-    if (authToken) {
-      // Якщо токен існує, виконати автоматичну авторизацію
-      // Тут вам може знадобитися додаткова логіка для перевірки та оновлення токену
-      dispatch(setUser({ token: authToken }));
+    const storedUser = JSON.parse(localStorage.getItem("papaya_user"));
+    if (storedUser) {
+      dispatch(
+        setUser({
+          email: storedUser.email,
+          token: storedUser.token,
+          id: storedUser.id,
+        }),
+      );
+    } else {
+      console.log("No token");
     }
   }, [dispatch]);
 

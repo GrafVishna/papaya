@@ -2,7 +2,7 @@ import {
   getAuth,
   signInWithEmailAndPassword,
   setPersistence,
-  browserLocalPersistence,
+  browserSessionPersistence,
 } from "firebase/auth";
 import { setUser } from "../../../store/slices/userSlice.js";
 import { useModal } from "../../../providers/ModalProvider.jsx";
@@ -19,9 +19,9 @@ export const LoginPage = ({ subtitle, button }) => {
   const handleLogIn = async (email, password) => {
     try {
       const auth = getAuth();
-
-      await setPersistence(auth, browserLocalPersistence);
+      await setPersistence(auth, browserSessionPersistence);
       const { user } = await signInWithEmailAndPassword(auth, email, password);
+
       dispatch(
         setUser({
           email: user.email,
