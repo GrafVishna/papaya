@@ -57,8 +57,8 @@ export default function MyModal() {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full  max-w-md transform overflow-hidden p-[2px] rounded-2xl bg-lg-nav text-left align-middle shadow-bs-auth-modal transition-all">
-                  <div className="rounded-2xl bg-lg-body p-10 min-h-[450px] flex flex-col">
+                <Dialog.Panel className="mobile:static h-screen mobile:h-auto fixed mobile:w-full mobile:max-w-md w-screen transform overflow-hidden p-[10px] mobile:p-[2px] mobile:rounded-2xl bg-lg-nav text-left align-middle shadow-bs-auth-modal transition-all">
+                  <div className="rounded-2xl bg-lg-body mobile-s:p-10 px-4 py-10 h-full mobile:h-auto mobile:min-h-[520px]  flex flex-col">
                     {!isAuth ? (
                       <TabsAuth />
                     ) : (

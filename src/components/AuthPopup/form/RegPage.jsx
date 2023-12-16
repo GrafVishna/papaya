@@ -18,6 +18,7 @@ export const RegPage = ({ subtitle, button }) => {
         console.log(user);
         dispatch(
           setUser({
+            name: user.name,
             email: user.email,
             id: user.uid,
             token: user.accessToken,
@@ -35,7 +36,12 @@ export const RegPage = ({ subtitle, button }) => {
       <div className="mt-2 mb-4 nav-item relative pb-2">
         <p className="text-sm text-gray-500 ">{subtitle}</p>
       </div>
-      <AuthForm button={button} handleClick={handleRegister} error={error} />
+      <AuthForm
+        action="reg"
+        button={button}
+        handleClick={handleRegister}
+        error={error}
+      />
     </Tab.Panel>
   );
 };

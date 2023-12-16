@@ -12,6 +12,7 @@ export const AuthProvider = ({ children }) => {
     if (storedUser) {
       dispatch(
         setUser({
+          name: storedUser.name,
           email: storedUser.email,
           token: storedUser.token,
           id: storedUser.id,

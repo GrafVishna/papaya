@@ -6,7 +6,8 @@ export const TabsNavBtn = ({ content }) => {
     return classes.filter(Boolean).join(" ");
   }
 
-  const tabAllClasses = "outline-none px-10 py-3 focus:bg-lg-decryption-rotate";
+  const tabAllClasses =
+    "outline-none flex mobile-s:px-10 px-5 py-3 focus:bg-lg-decryption-rotate";
   const tabBtnClasses = `${tabAllClasses} opacity-60 `;
   const tabActiveBtnClasses = `${tabAllClasses} opacity-100 `;
 
