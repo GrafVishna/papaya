@@ -14,11 +14,13 @@ const userSlice = createSlice({
       state.email = action.payload.email;
       state.token = action.payload.token;
       state.id = action.payload.id;
+      localStorage.setItem("user", JSON.stringify(state));
     },
     removeUser(state) {
       state.email = null;
       state.token = null;
       state.id = null;
+      localStorage.removeItem("user");
     },
   },
 });

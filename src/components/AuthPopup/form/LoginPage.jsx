@@ -22,7 +22,6 @@ export const LoginPage = ({ subtitle, button }) => {
 
       await setPersistence(auth, browserLocalPersistence);
       const { user } = await signInWithEmailAndPassword(auth, email, password);
-
       dispatch(
         setUser({
           email: user.email,
