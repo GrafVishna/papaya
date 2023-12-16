@@ -10,7 +10,7 @@ const TabsAuth = () => {
     "Welcome to the site! Log in using your email and password or with one click via your Google account. Accessibility and convenience in one.";
   return (
     <Tab.Group>
-      <Tab.List className="flex mobile-s:gap-8 gap-1 w-full justify-center nav-item relative">
+      <Tab.List className="flex mobile-s:gap-8 gap-1  w-full justify-center nav-item relative">
         <TabsNavBtn content="Log In" />
         <TabsNavBtn content="Sign Up" />
       </Tab.List>

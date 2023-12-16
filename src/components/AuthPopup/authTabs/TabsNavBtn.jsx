@@ -7,7 +7,7 @@ export const TabsNavBtn = ({ content }) => {
   }
 
   const tabAllClasses =
-    "outline-none flex mobile-s:px-10 px-5 py-3 focus:bg-lg-decryption-rotate";
+    "outline-none flex mobile-s:px-10 px-5 py-3 pb-5 focus:bg-lg-decryption-rotate";
   const tabBtnClasses = `${tabAllClasses} opacity-60 `;
   const tabActiveBtnClasses = `${tabAllClasses} opacity-100 `;
 

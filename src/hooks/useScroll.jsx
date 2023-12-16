@@ -1,5 +1,5 @@
 import { useOverlayScrollbars } from "overlayscrollbars-react";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 
 // example usage
 const UseScroll = (ref) => {

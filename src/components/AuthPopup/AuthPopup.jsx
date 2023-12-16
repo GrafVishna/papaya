@@ -1,12 +1,13 @@
 import { Dialog, Transition } from "@headlessui/react";
-import React, { Fragment, useEffect, useState } from "react";
-import { useModal } from "../../providers/ModalProvider.jsx";
+import React, { Fragment } from "react";
+import { useModal } from "../../providers/ModalProvider";
 import TabsAuth from "./authTabs/TabsAuth";
-import { useAuth } from "../../hooks/useAuth.jsx";
+import { useAuth } from "../../hooks/useAuth";
 import { removeUser } from "../../store/slices/userSlice";
 import { useDispatch } from "react-redux";
-import { PiHandWavingThin, PiSmileySadThin } from "react-icons/pi";
-import { BorderBtn } from "../buttons/BorderBtn.jsx";
+import { PiSmileySadThin } from "react-icons/pi";
+import { BorderBtn } from "../buttons/BorderBtn";
+import { IoCloseOutline } from "react-icons/io5";
 
 export default function MyModal() {
   const { modalState, setModalState } = useModal();
@@ -16,19 +17,6 @@ export default function MyModal() {
   function closeModal() {
     setModalState(false);
   }
-
-  // const [hello, setHello] = useState(false);
-  // useEffect(() => {
-  //   if (isAuth) {
-  //     setHello(true);
-  //
-  //     const timeoutId = setTimeout(() => {
-  //       setHello(false);
-  //     }, 3000);
-  //
-  //     return () => clearTimeout(timeoutId);
-  //   }
-  // }, [isAuth]);
 
   return (
     <>
@@ -47,7 +35,7 @@ export default function MyModal() {
           </Transition.Child>
 
           <div className="fixed inset-0 overflow-y-auto group">
-            <div className="flex min-h-full items-center justify-center p-4 text-center">
+            <div className="mobile:flex min-h-full items-center justify-center mobile:p-4 text-center">
               <Transition.Child
                 as={Fragment}
                 enter="ease-out duration-300"
@@ -57,8 +45,15 @@ export default function MyModal() {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="mobile:static h-screen mobile:h-auto fixed mobile:w-full mobile:max-w-md w-screen transform overflow-hidden p-[10px] mobile:p-[2px] mobile:rounded-2xl bg-lg-nav text-left align-middle shadow-bs-auth-modal transition-all">
-                  <div className="rounded-2xl bg-lg-body mobile-s:p-10 px-4 py-10 h-full mobile:h-auto mobile:min-h-[520px]  flex flex-col">
+                <Dialog.Panel className="mobile:static h-full fixed mobile:w-full mobile:max-w-md w-screen transform overflow-hidden p-[10px] mobile:p-[2px] mobile:rounded-2xl bg-lg-nav text-left align-middle shadow-bs-auth-modal transition-all">
+                  <div className="rounded-2xl bg-lg-body overflow-auto mobile-s:p-10 px-4 py-10 h-full mobile:h-auto mobile:min-h-[520px]  flex flex-col">
+                    <button
+                      type="button"
+                      onClick={() => setModalState(false)}
+                      className="p-1 absolute top-5 right-5 rounded-full outline-none opacity-60 transition focus:opacity-100 hover:opacity-100"
+                    >
+                      <IoCloseOutline size={26} />
+                    </button>
                     {!isAuth ? (
                       <TabsAuth />
                     ) : (
