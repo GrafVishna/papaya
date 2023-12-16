@@ -1,25 +1,22 @@
-import { getAuth, signInWithPopup } from "firebase/auth";
-import { useEffect, useState } from "react";
-import { app, googleAuthProvider } from "../firebase.js";
+import { createContext, useContext, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { setUser } from "../store/slices/userSlice"; // Шлях до вашого slice для користувача
 
-const AuthProvider = ({ children }) => {
-  const auth = getAuth(app);
-  const [user, setUser] = useState(auth.currentUser);
+const AuthContext = createContext();
+
+export const AuthProvider = ({ children }) => {
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const unSub = auth.onAuthStateChanged((maybeUser) => {
-      if (maybeUser != null) {
-        return setUser(maybeUser);
-      }
-      signInWithPopup(auth, googleAuthProvider)
-        .then((credentials) => setUser(credentials.user))
-        .catch((e) => console.error(e));
-    });
+    const authToken = localStorage.getItem("authToken");
+    if (authToken) {
+      dispatch(setUser({ token: authToken }));
+    }
+  }, [dispatch]);
 
-    return unSub;
-  }, [auth]);
-
-  return children;
+  return <AuthContext.Provider value={{}}>{children}</AuthContext.Provider>;
 };
 
-export default AuthProvider;
+export const useAuth = () => {
+  return useContext(AuthContext);
+};

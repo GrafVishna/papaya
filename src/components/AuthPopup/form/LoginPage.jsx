@@ -20,10 +20,7 @@ export const LoginPage = ({ subtitle, button }) => {
     try {
       const auth = getAuth();
 
-      // Встановлення persistence, наприклад, якщо ви хочете зберігати сесії на всю сесію браузера
       await setPersistence(auth, browserLocalPersistence);
-
-      // Реєстрація користувача з використанням вже встановленого persistence
       const { user } = await signInWithEmailAndPassword(auth, email, password);
 
       dispatch(
@@ -33,7 +30,7 @@ export const LoginPage = ({ subtitle, button }) => {
           token: user.accessToken,
         }),
       );
-
+      localStorage.setItem("authState", "authenticated");
       setTimeout(() => {
         setModalState(false);
       }, 2400);

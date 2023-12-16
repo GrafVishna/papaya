@@ -8,13 +8,16 @@ import { ModalProvider } from "./providers/ModalProvider.jsx";
 import { Provider } from "react-redux";
 import { store } from "./store/index.js";
 import "./firebase";
+import { AuthProvider } from "./providers/AuthProvider.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
     <Provider store={store}>
-      <ModalProvider>
-        <App />
-      </ModalProvider>
+      <AuthProvider>
+        <ModalProvider>
+          <App />
+        </ModalProvider>
+      </AuthProvider>
     </Provider>
   </BrowserRouter>,
 );
