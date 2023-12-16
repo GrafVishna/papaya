@@ -1,49 +1,9 @@
 import { Tab } from "@headlessui/react";
 import { TabsNavBtn } from "./TabsNavBtn.jsx";
-import { AuthForm } from "./AuthForm.jsx";
-import { setUser } from "../../../store/slices/userSlice.js";
-
-import { useDispatch } from "react-redux";
-import {
-  getAuth,
-  signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
-} from "firebase/auth";
+import { LoginPage } from "../form/LoginPage.jsx";
+import { RegPage } from "../form/RegPage.jsx";
 
 const TabsAuth = () => {
-  const dispatch = useDispatch();
-
-  const handleLogIn = (email, password, error) => {
-    const auth = getAuth();
-    signInWithEmailAndPassword(auth, email, password)
-      .then(({ user }) => {
-        dispatch(
-          setUser({
-            email: user.email,
-            id: user.uid,
-            token: user.accessToken,
-          }),
-        );
-      })
-      .catch();
-  };
-
-  const handleRegister = (email, password) => {
-    const auth = getAuth();
-    createUserWithEmailAndPassword(auth, email, password)
-      .then(({ user }) => {
-        console.log(user);
-        dispatch(
-          setUser({
-            email: user.email,
-            id: user.uid,
-            token: user.accessToken,
-          }),
-        );
-      })
-      .catch(console.error);
-  };
-
   const subtitleSing =
     "Join us today! Register with your email and create a password, or effortlessly sign up using your Google account. Seamless registration for your convenience.";
   const subtitleLogIn =
@@ -56,16 +16,8 @@ const TabsAuth = () => {
       </Tab.List>
 
       <Tab.Panels className="flex-auto flex flex-col outline-amber-500">
-        <AuthForm
-          subtitle={subtitleLogIn}
-          button="Log In"
-          handleClick={handleLogIn}
-        />
-        <AuthForm
-          subtitle={subtitleSing}
-          button="Sign Up"
-          handleClick={handleRegister}
-        />
+        <LoginPage subtitle={subtitleLogIn} button="Log In" />
+        <RegPage subtitle={subtitleSing} button="Sign Up" />
       </Tab.Panels>
     </Tab.Group>
   );

@@ -1,31 +1,39 @@
 import { Dialog, Transition } from "@headlessui/react";
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { useModal } from "../../providers/ModalProvider.jsx";
 import TabsAuth from "./authTabs/TabsAuth";
 import { useAuth } from "../../hooks/useAuth.jsx";
 import { removeUser } from "../../store/slices/userSlice";
 import { useDispatch } from "react-redux";
+import { PiHandWavingThin, PiSmileySadThin } from "react-icons/pi";
+import { BorderBtn } from "../buttons/BorderBtn.jsx";
 
 export default function MyModal() {
   const { modalState, setModalState } = useModal();
   const { isAuth, email } = useAuth();
   const dispatch = useDispatch();
 
-  const btnAfterClass =
-    "after:absolute after:top-0 after:left-0 after:w-full after:h-full border-b-[1px] border-white/25";
-  const btnBeforeClass =
-    "before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-lg-nav-t before:translate-y-[100%] before:opacity-0 before:transition before:duration-[0.4s]";
-  const btnClass =
-    "px-3 py-4  overflow-hidden rounded-b-2xl font-bold color-white opacity-80 hover:opacity-100 transition duration-[0.3s] relative group hover:before:opacity-100 hover:before:translate-y-[0] w-full text-headline-text";
-
   function closeModal() {
     setModalState(false);
   }
 
+  // const [hello, setHello] = useState(false);
+  // useEffect(() => {
+  //   if (isAuth) {
+  //     setHello(true);
+  //
+  //     const timeoutId = setTimeout(() => {
+  //       setHello(false);
+  //     }, 3000);
+  //
+  //     return () => clearTimeout(timeoutId);
+  //   }
+  // }, [isAuth]);
+
   return (
     <>
       <Transition appear show={modalState} as={Fragment}>
-        <Dialog as="div" className="relative z-50" onClose={closeModal}>
+        <Dialog as="div" className={`relative z-50 `} onClose={closeModal}>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -38,7 +46,7 @@ export default function MyModal() {
             <div className="fixed inset-0 bg-black/50" />
           </Transition.Child>
 
-          <div className="fixed inset-0 overflow-y-auto">
+          <div className="fixed inset-0 overflow-y-auto group">
             <div className="flex min-h-full items-center justify-center p-4 text-center">
               <Transition.Child
                 as={Fragment}
@@ -54,24 +62,29 @@ export default function MyModal() {
                     {!isAuth ? (
                       <TabsAuth />
                     ) : (
-                      <div className="flex-auto flex flex-col">
-                        <div className="mt-2 relative flex-auto text-center mb-20">
-                          <h3 className="text-heading-h3 mb-4">Log Out</h3>
-                          <p className="text-sm text-gray-400 nav-item pb-2">
-                            Do you really want to get out of the account?
-                          </p>
-                          <span className="text-center pt-2 text-gray-500">
-                            {email}
-                          </span>
+                      <>
+                        <div className="flex-auto flex flex-col ">
+                          <div className="mt-2 relative flex-auto text-center mb-20">
+                            <h3 className="text-heading-h3 mb-4">Log Out</h3>
+                            <p className="text-sm text-gray-400 nav-item pb-3">
+                              Do you really want to get out of the account?
+                            </p>
+                            <span className="text-center pt-2 block text-gray-500 mb-4">
+                              {email}
+                            </span>
+                            <span className="text-center flex justify-center">
+                              <PiSmileySadThin
+                                size={60}
+                                className="text-gray-500"
+                              />
+                            </span>
+                          </div>
+                          <BorderBtn
+                            content="Log Out"
+                            handleClick={() => dispatch(removeUser())}
+                          />
                         </div>
-                        <button
-                          onClick={() => dispatch(removeUser())}
-                          type="button"
-                          className={`${btnClass} ${btnBeforeClass} ${btnAfterClass}`}
-                        >
-                          Log Out
-                        </button>
-                      </div>
+                      </>
                     )}
                   </div>
                 </Dialog.Panel>

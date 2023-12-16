@@ -3,6 +3,7 @@ import React from "react";
 import { Fragment } from "react";
 import { useModal } from "../../providers/ModalProvider";
 import { useAuth } from "../../hooks/useAuth.jsx";
+import { BorderBtn } from "../buttons/BorderBtn.jsx";
 
 const UserDropdown = () => {
   const { modalState, setModalState } = useModal();
@@ -32,28 +33,17 @@ const UserDropdown = () => {
         <Popover.Panel className="fixed right-0 left-auto z-100 mt-4 py-10 px-2 max-w-[300px] bg-lg-main shadow-bs-auth-dropdown w-full rounded-2xl">
           <div className="flex flex-col items-end">
             {!isAuth ? (
-              <button
-                onClick={() => setModalState(true)}
-                type="button"
-                className={`${btnClass} ${btnBeforeClass} ${btnAfterClass}`}
-              >
-                Log In
-              </button>
+              <BorderBtn
+                content="Log In"
+                handleClick={() => setModalState(true)}
+              />
             ) : (
               <>
-                <button
-                  type="button"
-                  className={`${btnClass} ${btnBeforeClass} ${btnAfterClass}`}
-                >
-                  Profile
-                </button>
-                <button
-                  onClick={() => setModalState(true)}
-                  type="button"
-                  className={`${btnClass} ${btnBeforeClass} ${btnAfterClass}`}
-                >
-                  Log Out
-                </button>
+                <BorderBtn content="Profile" />
+                <BorderBtn
+                  content="Log Out"
+                  handleClick={() => setModalState(true)}
+                />
               </>
             )}
           </div>
