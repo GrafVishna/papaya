@@ -29,7 +29,7 @@ export const LoginPage = ({ subtitle, button }) => {
           token: user.accessToken,
         }),
       );
-      localStorage.setItem("authState", "authenticated");
+
       setTimeout(() => {
         setModalState(false);
       }, 2400);

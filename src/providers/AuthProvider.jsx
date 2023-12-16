@@ -10,9 +10,15 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const authToken = localStorage.getItem("authToken");
     if (authToken) {
+      // Якщо токен існує, виконати автоматичну авторизацію
+      // Тут вам може знадобитися додаткова логіка для перевірки та оновлення токену
       dispatch(setUser({ token: authToken }));
     }
   }, [dispatch]);
 
   return <AuthContext.Provider value={{}}>{children}</AuthContext.Provider>;
+};
+
+export const useAuth = () => {
+  return useContext(AuthContext);
 };
