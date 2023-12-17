@@ -5,17 +5,16 @@ import {
   browserSessionPersistence,
 } from "firebase/auth";
 import { setUser } from "../../../store/slices/userSlice.js";
-import { useModal } from "../../../providers/ModalProvider.jsx";
 import { useDispatch } from "react-redux";
 import { Tab } from "@headlessui/react";
-import { AuthForm } from "./AuthForm.jsx";
+import { AuthForm } from "./form/AuthForm.jsx";
 import { useState } from "react";
+import { useModal } from "../../../providers/ModalProvider.jsx";
 
 export const LoginPage = ({ subtitle, button }) => {
-  const { modalState, setModalState } = useModal();
   const dispatch = useDispatch();
   const [error, setError] = useState(null);
-
+  const { setModalSIn } = useModal();
   const handleLogIn = async (email, password) => {
     try {
       const auth = getAuth();
@@ -31,7 +30,7 @@ export const LoginPage = ({ subtitle, button }) => {
       );
 
       setTimeout(() => {
-        setModalState(false);
+        setModalSIn(false);
       }, 2400);
     } catch (error) {
       console.error("Firebase Authentication Error:", error);

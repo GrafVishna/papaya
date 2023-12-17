@@ -1,7 +1,7 @@
 import { Tab } from "@headlessui/react";
 import { TabsNavBtn } from "./TabsNavBtn.jsx";
-import { LoginPage } from "../form/LoginPage.jsx";
-import { RegPage } from "../form/RegPage.jsx";
+import { LoginPage } from "../LoginPage.jsx";
+import { RegPage } from "../RegPage.jsx";
 
 const TabsAuth = () => {
   const subtitleSing =
@@ -11,12 +11,12 @@ const TabsAuth = () => {
   return (
     <Tab.Group>
       <Tab.List className="flex mobile-s:gap-8 gap-1  w-full justify-center nav-item relative">
-        <TabsNavBtn content="Log In" />
+        <TabsNavBtn content="Sing In" />
         <TabsNavBtn content="Sign Up" />
       </Tab.List>
 
       <Tab.Panels className="flex-auto flex flex-col outline-amber-500">
-        <LoginPage subtitle={subtitleLogIn} button="Log In" />
+        <LoginPage subtitle={subtitleLogIn} button="Sing In" />
         <RegPage subtitle={subtitleSing} button="Sign Up" />
       </Tab.Panels>
     </Tab.Group>

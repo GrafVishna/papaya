@@ -1,6 +1,5 @@
 import { Camera, Notification } from "../../Icons.jsx";
 import UserDropdown from "../../UserDropdown/UserDropdown.jsx";
-import React from "react";
 
 export default function UserActions() {
   return (

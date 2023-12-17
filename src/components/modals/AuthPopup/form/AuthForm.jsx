@@ -1,22 +1,26 @@
-import GoogleBtn from "../../buttons/GoogleBtn.jsx";
+import GoogleBtn from "../../../buttons/GoogleBtn.jsx";
 import { useState } from "react";
-import { getErrors } from "./authErrors";
-import { DarkBtn } from "../../buttons/darkBtn.jsx";
+import {
+  ERR_CREDENTIAL,
+  ERR_EMAIL,
+  ERR_EMAIL_USE,
+  ERR_PASSWORD,
+} from "./authErrors.js";
+import { DarkBtn } from "../../../buttons/darkBtn.jsx";
 import { TextInput } from "./TextInput.jsx";
 
 export const AuthForm = ({ button, handleClick, error }) => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
-  const errorClass = getErrors(error);
   return (
     <>
-      <div className={`flex-auto group ${errorClass}`}>
+      <div className={`flex-auto group `}>
         <TextInput
           type="email"
           placeholder="Email"
           setAction={setEmail}
           value={email}
-          error={errorClass === "error-email" && true}
+          error={error === ERR_EMAIL && true}
           errorMsg="Invalid email!"
         />
         <TextInput
@@ -24,15 +28,22 @@ export const AuthForm = ({ button, handleClick, error }) => {
           placeholder="Password"
           setAction={setPass}
           value={pass}
-          error={errorClass === "error-password" && true}
+          error={error === ERR_PASSWORD && true}
           errorMsg="Invalid password!"
         />
         <p
           className={`${
-            errorClass === "error-credential" ? "block" : "hidden"
+            error === ERR_CREDENTIAL ? "block" : "hidden"
           } text-error/75 text-center text-small pr-2`}
         >
           Invalid account!
+        </p>
+        <p
+          className={`${
+            error === ERR_EMAIL_USE ? "block" : "hidden"
+          } text-error/75 text-center text-small pr-2`}
+        >
+          Account taken!
         </p>
       </div>
 

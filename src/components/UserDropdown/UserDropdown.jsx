@@ -6,15 +6,8 @@ import { useAuth } from "../../hooks/useAuth.jsx";
 import { BorderBtn } from "../buttons/BorderBtn.jsx";
 
 const UserDropdown = () => {
-  const { modalState, setModalState } = useModal();
+  const { setModalSIn, setModalOut } = useModal();
   const { isAuth } = useAuth();
-
-  const btnAfterClass =
-    "after:absolute after:top-0 after:left-0 after:w-full after:h-full border-b-[1px] border-white/25";
-  const btnBeforeClass =
-    "before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-lg-nav-t before:translate-y-[100%] before:opacity-0 before:transition before:duration-[0.4s]";
-  const btnClass =
-    "px-3 py-4  overflow-hidden rounded-b-2xl font-bold color-white opacity-80 hover:opacity-100 transition duration-[0.3s] relative group hover:before:opacity-100 hover:before:translate-y-[0] w-full text-headline-text";
 
   return (
     <Popover className="relative z-[100]">
@@ -35,14 +28,14 @@ const UserDropdown = () => {
             {!isAuth ? (
               <BorderBtn
                 content="Log In"
-                handleClick={() => setModalState(true)}
+                handleClick={() => setModalSIn(true)}
               />
             ) : (
               <>
                 <BorderBtn content="Profile" />
                 <BorderBtn
                   content="Log Out"
-                  handleClick={() => setModalState(true)}
+                  handleClick={() => setModalOut(true)}
                 />
               </>
             )}

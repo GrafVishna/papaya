@@ -3,10 +3,13 @@ import React, { createContext, useState, useContext } from "react";
 export const ModalContext = createContext(false);
 
 export const ModalProvider = ({ children }) => {
-  const [modalState, setModalState] = useState(false);
+  const [modalIn, setModalSIn] = useState(false);
+  const [modalOut, setModalOut] = useState(false);
 
   return (
-    <ModalContext.Provider value={{ modalState, setModalState }}>
+    <ModalContext.Provider
+      value={{ modalIn, setModalSIn, modalOut, setModalOut }}
+    >
       {children}
     </ModalContext.Provider>
   );

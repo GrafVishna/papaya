@@ -4,10 +4,10 @@ import { useModal } from "../../../providers/ModalProvider.jsx";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { Tab } from "@headlessui/react";
-import { AuthForm } from "./AuthForm.jsx";
+import { AuthForm } from "./form/AuthForm.jsx";
 
 export const RegPage = ({ subtitle, button }) => {
-  const { modalState, setModalState } = useModal();
+  const { setModalSIn } = useModal();
   const dispatch = useDispatch();
   const [error, setError] = useState(null);
   const handleRegister = (email, password) => {
@@ -24,7 +24,7 @@ export const RegPage = ({ subtitle, button }) => {
             token: user.accessToken,
           }),
         );
-        setModalState(false);
+        setModalSIn(false);
       })
       .catch((error) => {
         console.error("Firebase Authentication Error:", error);

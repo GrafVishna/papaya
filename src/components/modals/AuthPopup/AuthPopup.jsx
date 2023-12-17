@@ -1,27 +1,24 @@
 import { Dialog, Transition } from "@headlessui/react";
 import React, { Fragment } from "react";
-import { useModal } from "../../providers/ModalProvider";
-import TabsAuth from "./authTabs/TabsAuth";
-import { useAuth } from "../../hooks/useAuth";
-import { removeUser } from "../../store/slices/userSlice";
-import { useDispatch } from "react-redux";
-import { PiSmileySadThin } from "react-icons/pi";
-import { BorderBtn } from "../buttons/BorderBtn";
+import { useModal } from "../../../providers/ModalProvider.jsx";
+import TabsAuth from "./authTabs/TabsAuth.jsx";
+import { useAuth } from "../../../hooks/useAuth.jsx";
+import { PiSmileyThin } from "react-icons/pi";
 import { IoCloseOutline } from "react-icons/io5";
+import { MODAL_AUTH } from "../modalsID.js";
 
 export default function MyModal() {
-  const { modalState, setModalState } = useModal();
+  const { modalIn, setModalSIn } = useModal();
   const { isAuth, email } = useAuth();
-  const dispatch = useDispatch();
-
-  function closeModal() {
-    setModalState(false);
-  }
 
   return (
     <>
-      <Transition appear show={modalState} as={Fragment}>
-        <Dialog as="div" className={`relative z-50 `} onClose={closeModal}>
+      <Transition id={MODAL_AUTH} appear show={modalIn} as={Fragment}>
+        <Dialog
+          as="div"
+          className={`relative z-50 `}
+          onClose={() => setModalSIn(false)}
+        >
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -49,7 +46,7 @@ export default function MyModal() {
                   <div className="rounded-2xl bg-lg-body overflow-auto mobile-s:p-10 px-4 py-10 h-full mobile:h-auto mobile:min-h-[520px]  flex flex-col">
                     <button
                       type="button"
-                      onClick={() => setModalState(false)}
+                      onClick={() => setModalSIn(false)}
                       className="p-1 absolute top-5 right-5 rounded-full outline-none opacity-60 transition focus:opacity-100 hover:opacity-100"
                     >
                       <IoCloseOutline size={26} />
@@ -59,25 +56,21 @@ export default function MyModal() {
                     ) : (
                       <>
                         <div className="flex-auto flex flex-col ">
-                          <div className="mt-2 relative flex-auto text-center mb-20">
-                            <h3 className="text-heading-h3 mb-4">Log Out</h3>
+                          <div className="mt-2 relative  flex flex-col flex-auto text-center ">
+                            <h3 className="text-heading-h3 mb-4">Hello!</h3>
                             <p className="text-sm text-gray-400 nav-item pb-3">
-                              Do you really want to get out of the account?
+                              Welcome to us.
                             </p>
-                            <span className="text-center pt-2 block text-gray-500 mb-4">
+                            <span className="text-center  pt-2 block text-gray-500 mb-4">
                               {email}
                             </span>
-                            <span className="text-center flex justify-center">
-                              <PiSmileySadThin
-                                size={60}
+                            <span className="text-center flex-auto items-center flex justify-center">
+                              <PiSmileyThin
+                                size={120}
                                 className="text-gray-500"
                               />
                             </span>
                           </div>
-                          <BorderBtn
-                            content="Log Out"
-                            handleClick={() => dispatch(removeUser())}
-                          />
                         </div>
                       </>
                     )}
