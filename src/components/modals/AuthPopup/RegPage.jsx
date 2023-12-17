@@ -2,14 +2,18 @@ import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import { setUser } from "../../../store/slices/userSlice.js";
 import { useModal } from "../../../providers/ModalProvider.jsx";
 import { useDispatch } from "react-redux";
-import { useState } from "react";
+import React, { useState } from "react";
 import { Tab } from "@headlessui/react";
 import { AuthForm } from "./form/AuthForm.jsx";
+import { Welcome } from "./Welcome.jsx";
+import { useAuth } from "../../../hooks/useAuth.jsx";
 
 export const RegPage = ({ subtitle, button }) => {
   const { setModalSIn } = useModal();
   const dispatch = useDispatch();
   const [error, setError] = useState(null);
+  const { isAuth, email } = useAuth();
+
   const handleRegister = (email, password) => {
     const auth = getAuth();
 
@@ -24,14 +28,16 @@ export const RegPage = ({ subtitle, button }) => {
             token: user.accessToken,
           }),
         );
-        setModalSIn(false);
+        setTimeout(() => {
+          setModalSIn(false);
+        }, 2400);
       })
       .catch((error) => {
         console.error("Firebase Authentication Error:", error);
         setError(error.code);
       });
   };
-  return (
+  return !isAuth ? (
     <Tab.Panel className="flex flex-col flex-auto outline-none">
       <div className="mt-2 mb-4 nav-item relative pb-2">
         <p className="text-sm text-gray-500 ">{subtitle}</p>
@@ -43,5 +49,7 @@ export const RegPage = ({ subtitle, button }) => {
         error={error}
       />
     </Tab.Panel>
+  ) : (
+    <Welcome show={isAuth} email={email} />
   );
 };

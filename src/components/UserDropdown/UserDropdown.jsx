@@ -7,7 +7,7 @@ import { BorderBtn } from "../buttons/BorderBtn.jsx";
 
 const UserDropdown = () => {
   const { setModalSIn, setModalOut } = useModal();
-  const { isAuth } = useAuth();
+  const { isAuth, email } = useAuth();
 
   return (
     <Popover className="relative z-[100]">
@@ -32,6 +32,9 @@ const UserDropdown = () => {
               />
             ) : (
               <>
+                <p className="text-center w-full text-sm text-gray-400 nav-item pb-8">
+                  {email}
+                </p>
                 <BorderBtn content="Profile" />
                 <BorderBtn
                   content="Log Out"

@@ -1,10 +1,10 @@
-
 import { PiSmileySadThin } from "react-icons/pi";
 import { BorderBtn } from "../../buttons/BorderBtn.jsx";
 import { removeUser } from "../../../store/slices/userSlice.js";
+import { useDispatch } from "react-redux";
 
-
-export const ConfirmationOut = ({email}) => {
+export const ConfirmationOut = ({ email }) => {
+  const dispatch = useDispatch();
   return (
     <div className="flex-auto flex flex-col ">
       <div className="mt-2 relative flex-auto text-center mb-20">
@@ -16,7 +16,7 @@ export const ConfirmationOut = ({email}) => {
           {email}
         </span>
         <span className="text-center flex justify-center">
-          <PiSmileySadThin size={60} className="text-gray-500" />
+          <PiSmileySadThin size={100} className="text-gray-500" />
         </span>
       </div>
       <BorderBtn content="Log Out" handleClick={() => dispatch(removeUser())} />
