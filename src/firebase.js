@@ -7,8 +7,7 @@ const API_KEY = import.meta.env.VITE_API_KEY;
 
 const firebaseConfig = {
   apiKey: "AIzaSyAO7fOOwPmafiUZGbTrrjALvzC4rWD7pOk",
-  // authDomain: "papayaapi.firebaseapp.com",
-  authDomain: "papaya.artem.monster",
+  authDomain: "papayaapi.firebaseapp.com",
   projectId: "papayaapi",
   storageBucket: "papayaapi.appspot.com",
   messagingSenderId: "1027901639957",

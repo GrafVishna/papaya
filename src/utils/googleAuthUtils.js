@@ -11,10 +11,9 @@ import { useMatchMedia } from "../hooks/useMatchMedia.jsx";
 export const signInWithGoogle = async (auth, dispatch, setModalSIn) => {
   try {
     const provider = new GoogleAuthProvider();
-
     await setPersistence(auth, browserSessionPersistence);
 
-    const result = await signInWithRedirect(auth, provider);
+    const result = await signInWithPopup(auth, provider);
     const user = result.user;
     const credential = GoogleAuthProvider.credentialFromResult(result);
     const token = credential.accessToken;
