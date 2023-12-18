@@ -1,9 +1,3 @@
-import {
-  signInWithEmailAndPassword,
-  setPersistence,
-  browserSessionPersistence,
-} from "firebase/auth";
-import { setUser } from "../../../store/slices/userSlice.js";
 import { useDispatch } from "react-redux";
 import { Tab } from "@headlessui/react";
 import { AuthForm } from "./form/AuthForm.jsx";

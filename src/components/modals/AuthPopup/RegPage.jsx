@@ -1,5 +1,3 @@
-import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
-import { setUser } from "../../../store/slices/userSlice.js";
 import { useModal } from "../../../providers/ModalProvider.jsx";
 import { useDispatch } from "react-redux";
 import React, { useState } from "react";
@@ -7,7 +5,6 @@ import { Tab } from "@headlessui/react";
 import { AuthForm } from "./form/AuthForm.jsx";
 import { Welcome } from "./Welcome.jsx";
 import { useAuth } from "../../../hooks/useAuth.jsx";
-import { auth } from "../../../firebase.js";
 import { registerUser } from "../../../utils/reg.js";
 
 export const RegPage = ({ subtitle, button }) => {
