@@ -8,6 +8,7 @@ import { AuthForm } from "./form/AuthForm.jsx";
 import { Welcome } from "./Welcome.jsx";
 import { useAuth } from "../../../hooks/useAuth.jsx";
 import { auth } from "../../../firebase.js";
+import { registerUser } from "../../../utils/reg.js";
 
 export const RegPage = ({ subtitle, button }) => {
   const { setModalSIn } = useModal();
@@ -15,38 +16,15 @@ export const RegPage = ({ subtitle, button }) => {
   const [error, setError] = useState(null);
   const { isAuth, email } = useAuth();
 
-  const handleRegister = (email, password) => {
-    createUserWithEmailAndPassword(auth, email, password)
-      .then(({ user }) => {
-        console.log(user);
-        dispatch(
-          setUser({
-            name: user.name,
-            email: user.email,
-            id: user.uid,
-            token: user.accessToken,
-          }),
-        );
-        setTimeout(() => {
-          setModalSIn(false);
-        }, 2400);
-      })
-      .catch((error) => {
-        console.error("Firebase Authentication Error:", error);
-        setError(error.code);
-      });
+  const handleRegister = async (email, password) => {
+    await registerUser(dispatch, setModalSIn, setError, email, password);
   };
   return !isAuth ? (
     <Tab.Panel className="flex flex-col flex-auto outline-none">
       <div className="mt-2 mb-4 nav-item relative pb-2">
         <p className="text-sm text-gray-500 ">{subtitle}</p>
       </div>
-      <AuthForm
-        action="reg"
-        button={button}
-        handleClick={handleRegister}
-        error={error}
-      />
+      <AuthForm button={button} handleClick={handleRegister} error={error} />
     </Tab.Panel>
   ) : (
     <Welcome show={isAuth} email={email} />
