@@ -3,18 +3,21 @@ import { useDispatch } from "react-redux";
 import { setUser } from "../store/slices/userSlice";
 
 const AuthContext = createContext();
-
+const API_KEY = import.meta.env.VITE_API_KEY;
 export const AuthProvider = ({ children }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const storedUser = JSON.parse(localStorage.getItem("papaya_user"));
+    const storedUser = JSON.parse(
+      sessionStorage.getItem(`firebase:authUser:${API_KEY}:[DEFAULT]`),
+    );
     if (storedUser) {
       dispatch(
         setUser({
           email: storedUser.email,
           token: storedUser.token,
           id: storedUser.id,
+          avatar: storedUser.photoURL,
         }),
       );
     } else {

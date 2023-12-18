@@ -1,17 +1,13 @@
 import { useDispatch } from "react-redux";
 import { Tab } from "@headlessui/react";
 import { AuthForm } from "./form/AuthForm.jsx";
-import { useState } from "react";
-import { useModal } from "../../../providers/ModalProvider.jsx";
 import { auth } from "../../../firebase.js";
 import { signInWithGoogle } from "../../../utils/googleAuthUtils.js";
 import { authUser } from "../../../utils/login.js";
+import { useLogin } from "../../../hooks/useAuth.jsx";
 
 export const LoginPage = ({ subtitle, button }) => {
-  const dispatch = useDispatch();
-  const [error, setError] = useState(null);
-  const { setModalSIn } = useModal();
-
+  const { setModalSIn, dispatch, setError, error } = useLogin();
   const handleLogIn = async (email, password) => {
     await authUser(dispatch, setModalSIn, setError, email, password);
   };

@@ -1,6 +1,14 @@
 import { FcGoogle } from "react-icons/fc";
+import { signInWithGoogle } from "../../utils/googleAuthUtils.js";
+import { auth } from "../../firebase.js";
+import { useLogin } from "../../hooks/useAuth.jsx";
 
-const GoogleBtn = ({ handleLogInGoogle, content }) => {
+const GoogleBtn = ({ content }) => {
+  const { setModalSIn, dispatch } = useLogin();
+  const handleLogInGoogle = async () => {
+    await signInWithGoogle(auth, dispatch, setModalSIn);
+  };
+
   return (
     <button
       onClick={handleLogInGoogle}

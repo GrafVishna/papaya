@@ -35,6 +35,8 @@ export default {
         "lg-sec": "linear-gradient(135deg, #293462 0%, #343E61 100%)",
         "lg-nav":
           "radial-gradient(50% 128.57% at 50% -36.61%, #8015A7 0%, rgba(97, 54, 144, 0.00) 100%)",
+        "lg-avatar":
+          "radial-gradient(50% 128.57% at 40% -10.61%, #8015A7 0%, rgba(97, 54, 144, 0.1) 100%)",
         "lg-nav-t":
           "linear-gradient(180deg, rgba(196, 39, 251, 0.00) 0%, rgba(196, 39, 251, 0.20) 100%)",
         "lg-card":

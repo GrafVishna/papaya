@@ -3,10 +3,8 @@ import {
   setPersistence,
   browserSessionPersistence,
   signInWithPopup,
-  signInWithRedirect,
 } from "firebase/auth";
 import { setUser } from "../store/slices/userSlice.js";
-import { useMatchMedia } from "../hooks/useMatchMedia.jsx";
 
 export const signInWithGoogle = async (auth, dispatch, setModalSIn) => {
   try {
@@ -17,12 +15,13 @@ export const signInWithGoogle = async (auth, dispatch, setModalSIn) => {
     const user = result.user;
     const credential = GoogleAuthProvider.credentialFromResult(result);
     const token = credential.accessToken;
-
+    console.log(result);
     dispatch(
       setUser({
         email: user.email,
         id: user.uid,
         token: token,
+        avatar: user.photoURL,
       }),
     );
 

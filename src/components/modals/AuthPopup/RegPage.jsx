@@ -1,17 +1,13 @@
-import { useModal } from "../../../providers/ModalProvider.jsx";
-import { useDispatch } from "react-redux";
 import React, { useState } from "react";
 import { Tab } from "@headlessui/react";
 import { AuthForm } from "./form/AuthForm.jsx";
 import { Welcome } from "./Welcome.jsx";
-import { useAuth } from "../../../hooks/useAuth.jsx";
+import { useAuth, useLogin } from "../../../hooks/useAuth.jsx";
 import { registerUser } from "../../../utils/reg.js";
 
 export const RegPage = ({ subtitle, button }) => {
-  const { setModalSIn } = useModal();
-  const dispatch = useDispatch();
-  const [error, setError] = useState(null);
   const { isAuth, email } = useAuth();
+  const { error, setError, setModalSIn, dispatch } = useLogin();
 
   const handleRegister = async (email, password) => {
     await registerUser(dispatch, setModalSIn, setError, email, password);

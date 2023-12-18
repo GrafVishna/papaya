@@ -1,9 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const API_KEY = import.meta.env.VITE_API_KEY;
 const initialState = {
   email: null,
   token: null,
   id: null,
+  avatar: null,
 };
 
 const userSlice = createSlice({
@@ -14,13 +16,14 @@ const userSlice = createSlice({
       state.email = action.payload.email;
       state.token = action.payload.token;
       state.id = action.payload.id;
-      localStorage.setItem("papaya_user", JSON.stringify(state));
+      state.avatar = action.payload.avatar;
     },
     removeUser(state) {
       state.email = null;
       state.token = null;
       state.id = null;
-      localStorage.removeItem("papaya_user");
+      state.avatar = null;
+      sessionStorage.removeItem(`firebase:authUser:${API_KEY}:[DEFAULT]`);
     },
   },
 });

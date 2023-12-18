@@ -2,11 +2,11 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getDatabase } from "firebase/database";
-// import { GoogleAuthProvider } from "firebase/auth";
+
 const API_KEY = import.meta.env.VITE_API_KEY;
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAO7fOOwPmafiUZGbTrrjALvzC4rWD7pOk",
+  apiKey: API_KEY,
   authDomain: "papayaapi.firebaseapp.com",
   projectId: "papayaapi",
   storageBucket: "papayaapi.appspot.com",

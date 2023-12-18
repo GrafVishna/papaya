@@ -7,7 +7,7 @@ export const ConfirmationOut = ({ email }) => {
   const dispatch = useDispatch();
   return (
     <div className="flex-auto flex flex-col ">
-      <div className="mt-2 relative flex-auto text-center mb-20">
+      <div className="mt-2 relative flex-auto text-center mb-8">
         <h3 className="text-heading-h3 mb-4">Sing Out</h3>
         <p className="text-sm text-gray-400 nav-item pb-3">
           Do you really want to get out of the account?
