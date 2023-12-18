@@ -7,6 +7,7 @@ import { Tab } from "@headlessui/react";
 import { AuthForm } from "./form/AuthForm.jsx";
 import { Welcome } from "./Welcome.jsx";
 import { useAuth } from "../../../hooks/useAuth.jsx";
+import { auth } from "../../../firebase.js";
 
 export const RegPage = ({ subtitle, button }) => {
   const { setModalSIn } = useModal();
@@ -15,8 +16,6 @@ export const RegPage = ({ subtitle, button }) => {
   const { isAuth, email } = useAuth();
 
   const handleRegister = (email, password) => {
-    const auth = getAuth();
-
     createUserWithEmailAndPassword(auth, email, password)
       .then(({ user }) => {
         console.log(user);

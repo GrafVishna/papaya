@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { setUser } from "../store/slices/userSlice"; // Шлях до вашого slice для користувача
+import { setUser } from "../store/slices/userSlice";
 
 const AuthContext = createContext();
 

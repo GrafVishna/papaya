@@ -1,18 +1,20 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
+import { getDatabase } from "firebase/database";
 // import { GoogleAuthProvider } from "firebase/auth";
-// TODO: Add SDKs for Firebase products that you want to use
-
 const API_KEY = import.meta.env.VITE_API_KEY;
+
 const firebaseConfig = {
-  apiKey: API_KEY,
-  authDomain: "papaya-4f07b.firebaseapp.com",
-  projectId: "papaya-4f07b",
-  storageBucket: "papaya-4f07b.appspot.com",
-  messagingSenderId: "622850445961",
-  appId: "1:622850445961:web:56370934e019f267032c58",
-  measurementId: "G-JVLNDFLR45",
+  apiKey: "AIzaSyAO7fOOwPmafiUZGbTrrjALvzC4rWD7pOk",
+  authDomain: "papayaapi.firebaseapp.com",
+  projectId: "papayaapi",
+  storageBucket: "papayaapi.appspot.com",
+  messagingSenderId: "1027901639957",
+  appId: "1:1027901639957:web:cafc699b13e4720b322d1c",
+  measurementId: "G-EJS7913SVE",
 };
 
-// Initialize Firebase
 export const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);
+export const database = getDatabase(app);
