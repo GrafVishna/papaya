@@ -9,7 +9,7 @@ import {
 import { DarkBtn } from "../../../buttons/darkBtn.jsx";
 import { TextInput } from "./TextInput.jsx";
 
-export const AuthForm = ({ button, handleClick, handleLogInGoogle, error }) => {
+export const AuthForm = ({ button, handleClick, error }) => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   return (
@@ -54,7 +54,7 @@ export const AuthForm = ({ button, handleClick, handleLogInGoogle, error }) => {
           pass={pass}
           content={button}
         />
-        <GoogleBtn handleLogInGoogle={handleLogInGoogle} />
+        <GoogleBtn />
       </div>
     </>
   );

@@ -4,10 +4,14 @@ import { AuthForm } from "./form/AuthForm.jsx";
 import { Welcome } from "./Welcome.jsx";
 import { useAuth, useLogin } from "../../../hooks/useAuth.jsx";
 import { registerUser } from "../../../utils/reg.js";
+import { useAuthErrors } from "../../../hooks/useAuthErrors.jsx";
+import { useModal } from "../../../providers/ModalProvider.jsx";
 
 export const RegPage = ({ subtitle, button }) => {
+  const { setError, error } = useAuthErrors();
   const { isAuth, email } = useAuth();
-  const { error, setError, setModalSIn, dispatch } = useLogin();
+  const { setModalSIn } = useModal();
+  const { dispatch } = useLogin();
 
   const handleRegister = async (email, password) => {
     await registerUser(dispatch, setModalSIn, setError, email, password);

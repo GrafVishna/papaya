@@ -1,9 +1,7 @@
 import React, { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { useModal } from "../../providers/ModalProvider.jsx";
 
 export const MainPopupTransition = ({ children, show, onClose }) => {
-  const { modalIn, setModalSIn } = useModal();
   return (
     <Transition appear show={show} as={Fragment}>
       <Dialog as="div" className={`relative z-50 `} onClose={onClose}>

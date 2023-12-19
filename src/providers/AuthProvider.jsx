@@ -1,18 +1,6 @@
-import { createContext, useContext, useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { setUser } from "../store/slices/userSlice.js";
-
-const AuthContext = createContext();
+import { store } from "../store/index.js";
+import { Provider } from "react-redux";
 
 export const AuthProvider = ({ children }) => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(setUser());
-  }, [dispatch]);
-
-  return <AuthContext.Provider value={{}}>{children}</AuthContext.Provider>;
-};
-
-export const useAuth = () => {
-  return useContext(AuthContext);
+  return <Provider store={store}>{children}</Provider>;
 };

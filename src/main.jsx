@@ -1,23 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./components/App.jsx";
-import "./index.scss";
-
-import { BrowserRouter, Outlet } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import { ModalProvider } from "./providers/ModalProvider.jsx";
-import { Provider } from "react-redux";
-import { store } from "./store/index.js";
-import "./firebase";
 import { AuthProvider } from "./providers/AuthProvider.jsx";
+import App from "./components/App.jsx";
+import "./firebase";
+import "./index.scss";
+import { AuthProviderSetUser } from "./providers/AuthProviderSetUser.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
-    <Provider store={store}>
-      <AuthProvider>
+  <AuthProvider>
+    <AuthProviderSetUser>
+      <BrowserRouter>
         <ModalProvider>
           <App />
         </ModalProvider>
-      </AuthProvider>
-    </Provider>
-  </BrowserRouter>,
+      </BrowserRouter>
+    </AuthProviderSetUser>
+  </AuthProvider>,
 );

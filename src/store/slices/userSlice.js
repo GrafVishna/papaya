@@ -15,13 +15,13 @@ const userSlice = createSlice({
         return storedUser;
       } else {
         console.error("No user found in sessionStorage");
-        return state;
+        return initialState;
       }
     },
     // ==== //
     removeUser() {
       sessionStorage.removeItem(localStorageItem);
-      return {};
+      return initialState;
     },
     // ==== //
   },

@@ -1,4 +1,3 @@
-// registration.js
 import {
   browserSessionPersistence,
   setPersistence,
