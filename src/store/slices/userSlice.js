@@ -1,30 +1,29 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const API_KEY = import.meta.env.VITE_API_KEY;
-const initialState = {
-  email: null,
-  token: null,
-  id: null,
-  avatar: null,
-};
+const localStorageItem = `firebase:authUser:${API_KEY}:[DEFAULT]`;
+const initialState = {};
 
 const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
+    // ==== //
     setUser(state, action) {
-      state.email = action.payload.email;
-      state.token = action.payload.token;
-      state.id = action.payload.id;
-      state.avatar = action.payload.avatar;
+      const storedUser = JSON.parse(sessionStorage.getItem(localStorageItem));
+      if (storedUser) {
+        return storedUser;
+      } else {
+        console.error("No user found in sessionStorage");
+        return state;
+      }
     },
-    removeUser(state) {
-      state.email = null;
-      state.token = null;
-      state.id = null;
-      state.avatar = null;
-      sessionStorage.removeItem(`firebase:authUser:${API_KEY}:[DEFAULT]`);
+    // ==== //
+    removeUser() {
+      sessionStorage.removeItem(localStorageItem);
+      return {};
     },
+    // ==== //
   },
 });
 

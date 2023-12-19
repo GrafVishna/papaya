@@ -4,13 +4,13 @@ import { Fragment } from "react";
 import { useModal } from "../../providers/ModalProvider";
 import { useAuth } from "../../hooks/useAuth.jsx";
 import { BorderBtn } from "../buttons/BorderBtn.jsx";
-import { IoList } from "react-icons/io5";
 import { HiOutlineHome } from "react-icons/hi2";
 import { HiOutlineUser } from "react-icons/hi2";
 
 const UserDropdown = () => {
   const { setModalSIn, setModalOut } = useModal();
-  const { isAuth, email, avatar } = useAuth();
+  const { isAuth, photoURL, email } = useAuth();
+
   return (
     <Popover className="relative z-[100]">
       {!isAuth ? (
@@ -19,10 +19,10 @@ const UserDropdown = () => {
         </Popover.Button>
       ) : (
         <Popover.Button className="text-white relative text-xl font-medium mobile:h-10 mobile:w-10 w-8 h-8 bg-lg-avatar rounded-full overflow-hidden flex items-center justify-center outline-0">
-          {avatar ? (
+          {photoURL ? (
             <img
               className="absolute top-0 left-0 w-full h-full object-cover"
-              src={`${avatar}`}
+              src={`${photoURL}`}
               alt=""
             />
           ) : (
@@ -50,7 +50,7 @@ const UserDropdown = () => {
             ) : (
               <>
                 <p className="text-center w-full text-sm text-gray-400 nav-item pb-8">
-                  {email}
+                  {email && email}
                 </p>
                 <BorderBtn content="Profile" />
                 <BorderBtn

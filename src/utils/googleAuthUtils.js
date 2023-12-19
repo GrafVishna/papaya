@@ -10,26 +10,11 @@ export const signInWithGoogle = async (auth, dispatch, setModalSIn) => {
   try {
     const provider = new GoogleAuthProvider();
     await setPersistence(auth, browserSessionPersistence);
+    await signInWithPopup(auth, provider);
+    dispatch(setUser());
+    setTimeout(() => setModalSIn(false), 2400);
 
-    const result = await signInWithPopup(auth, provider);
-    const user = result.user;
-    const credential = GoogleAuthProvider.credentialFromResult(result);
-    const token = credential.accessToken;
-    console.log(result);
-    dispatch(
-      setUser({
-        email: user.email,
-        id: user.uid,
-        token: token,
-        avatar: user.photoURL,
-      }),
-    );
-
-    setTimeout(() => {
-      setModalSIn(false);
-    }, 2400);
-
-    console.log("Google Authentication Success:", user);
+    console.log("Google Authentication Success:");
   } catch (error) {
     console.error("Google Authentication Error:", error);
   }

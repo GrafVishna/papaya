@@ -6,7 +6,6 @@ export const TextInput = ({
   error,
   errorMsg,
 }) => {
-  console.log(error);
   return (
     <div className="mb-4 last:mb-0 relative">
       <input

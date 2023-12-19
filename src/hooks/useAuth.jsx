@@ -3,13 +3,11 @@ import { useState } from "react";
 import { useModal } from "../providers/ModalProvider.jsx";
 
 export const useAuth = () => {
-  const { email, token, id, avatar } = useSelector((state) => state.user);
+  const user = useSelector((state) => state.user);
+  const isAuth = !!user.uid;
   return {
-    isAuth: !!email,
-    email,
-    token,
-    id,
-    avatar,
+    isAuth: isAuth,
+    ...user,
   };
 };
 

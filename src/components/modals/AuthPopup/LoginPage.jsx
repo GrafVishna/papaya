@@ -8,6 +8,7 @@ import { useLogin } from "../../../hooks/useAuth.jsx";
 
 export const LoginPage = ({ subtitle, button }) => {
   const { setModalSIn, dispatch, setError, error } = useLogin();
+
   const handleLogIn = async (email, password) => {
     await authUser(dispatch, setModalSIn, setError, email, password);
   };

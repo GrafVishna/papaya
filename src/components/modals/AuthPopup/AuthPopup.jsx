@@ -1,4 +1,4 @@
-import { Dialog, Transition } from "@headlessui/react";
+import { Dialog } from "@headlessui/react";
 import React, { Fragment } from "react";
 import { useModal } from "../../../providers/ModalProvider.jsx";
 import TabsAuth from "./authTabs/TabsAuth.jsx";

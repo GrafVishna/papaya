@@ -1,5 +1,8 @@
-// registration.js
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  browserSessionPersistence,
+  createUserWithEmailAndPassword,
+  setPersistence,
+} from "firebase/auth";
 import { setUser } from "../store/slices/userSlice.js";
 import { auth } from "../firebase.js";
 
@@ -10,25 +13,17 @@ export const registerUser = async (
   email,
   password,
 ) => {
+  await setPersistence(auth, browserSessionPersistence);
   try {
     const { user } = await createUserWithEmailAndPassword(
       auth,
       email,
       password,
     );
+    dispatch(setUser());
+    setTimeout(() => setModalSIn(false), 2400);
 
-    dispatch(
-      setUser({
-        name: user.name,
-        email: user.email,
-        id: user.uid,
-        token: user.accessToken,
-      }),
-    );
-
-    setTimeout(() => {
-      setModalSIn(false);
-    }, 2400);
+    console.log("Registration Success:");
   } catch (error) {
     console.error("Firebase Authentication Error:", error);
     setError(error.code);
