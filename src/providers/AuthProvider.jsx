@@ -33,7 +33,7 @@ export const AuthProviderSetUser = ({ children }) => {
           providerEmail: profile.email,
         };
       });
-      console.log(currentUser);
+
       dispatch(setUser({ ...currentUser }));
     }
   });

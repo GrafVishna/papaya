@@ -18,7 +18,7 @@ export const Avatar = ({ size = "50", font, fontMobile }) => {
           className={` text-white text-xl font-medium rounded-full flex items-center justify-center outline-0`}
           style={{ width: `${size}`, height: `${size}` }}
         >
-          <HiOutlineUser style={{ fontSize: `${font}` }} />
+          <HiOutlineUser style={{ fontSize: `${font ? font : "inherit"}` }} />
         </span>
       )}
       <span className="w-20 h-20 hidden absolute"></span>

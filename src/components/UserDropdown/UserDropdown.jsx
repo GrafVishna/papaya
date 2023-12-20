@@ -3,26 +3,26 @@ import { Fragment } from "react";
 import { useModal } from "../../providers/ModalProvider";
 import { useAuth } from "../../hooks/useAuth";
 import { BorderBtn } from "../buttons/BorderBtn";
-import { HiOutlineHome } from "react-icons/hi2";
-import { HiOutlineUser } from "react-icons/hi2";
+import { IoIosMenu } from "react-icons/io";
+
 import { Avatar } from "./Avatar.jsx";
 
 const UserDropdown = () => {
   const { setModalSIn, setModalOut } = useModal();
-  const { isAuth, displayName } = useAuth();
+  const { isAuth, displayName, email } = useAuth();
 
   return (
-    <Popover className="relative z-[100] mobile:text-[24px] text-[18px]">
+    <Popover className="relative z-[100] mobile:h-10 mobile:w-10 w-8 h-8 mobile:text-[24px] text-[18px]">
       {!isAuth ? (
-        <Popover.Button className="text-white text-xl font-medium rounded-full flex items-center justify-center outline-0">
-          <HiOutlineHome className="mobile:text-[23px] text-[19px]" />
+        <Popover.Button className="text-white h-[100%] w-[100%] bg-lg-avatar text-xl font-medium rounded-full flex items-center justify-center outline-0">
+          <IoIosMenu className="" />
         </Popover.Button>
       ) : (
         <Popover.Button
-          className="text-white relative text-xl font-medium mobile:h-10 mobile:w-10 w-8 h-8 bg-lg-avatar
+          className="text-white relative text-xl font-medium h-[100%] w-[100%] bg-lg-avatar
          rounded-full overflow-hidden flex items-center justify-center outline-0"
         >
-          <Avatar size="100%" font="1em" />
+          <Avatar size="100%" />
         </Popover.Button>
       )}
 
@@ -35,7 +35,7 @@ const UserDropdown = () => {
         leaveFrom="opacity-100 translate-y-0"
         leaveTo="opacity-0 translate-y-1"
       >
-        <Popover.Panel className="fixed right-0 left-auto z-100 mt-4 py-10 px-2 max-w-[300px] bg-lg-main shadow-bs-auth-dropdown w-full rounded-2xl">
+        <Popover.Panel className="fixed right-4 left-auto z-100 mt-4 py-10 px-2 max-w-[300px] bg-lg-main shadow-bs-auth-dropdown w-full rounded-2xl">
           <div className="flex flex-col items-end">
             {!isAuth ? (
               <BorderBtn
@@ -44,10 +44,10 @@ const UserDropdown = () => {
               />
             ) : (
               <>
-                <p className="text-center flex flex-col items-center gap-5 w-full text-sm text-gray-400 nav-item pb-4 mb-8">
+                <div className="text-center flex flex-col items-center gap-5 w-full text-body-main text-gray-400 nav-item pb-4 mb-8">
                   <Avatar size="100px" font="35px" />
-                  <span>{displayName && displayName}</span>
-                </p>
+                  <span>{displayName ? displayName : email}</span>
+                </div>
 
                 <BorderBtn content="Profile" />
                 <BorderBtn
