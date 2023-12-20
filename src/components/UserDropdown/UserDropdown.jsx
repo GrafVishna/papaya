@@ -1,9 +1,8 @@
 import { Popover, Transition } from "@headlessui/react";
-import React from "react";
 import { Fragment } from "react";
 import { useModal } from "../../providers/ModalProvider";
-import { useAuth } from "../../hooks/useAuth.jsx";
-import { BorderBtn } from "../buttons/BorderBtn.jsx";
+import { useAuth } from "../../hooks/useAuth";
+import { BorderBtn } from "../buttons/BorderBtn";
 import { HiOutlineHome } from "react-icons/hi2";
 import { HiOutlineUser } from "react-icons/hi2";
 
@@ -18,7 +17,10 @@ const UserDropdown = () => {
           <HiOutlineHome className="mobile:text-[23px] text-[19px]" />
         </Popover.Button>
       ) : (
-        <Popover.Button className="text-white relative text-xl font-medium mobile:h-10 mobile:w-10 w-8 h-8 bg-lg-avatar rounded-full overflow-hidden flex items-center justify-center outline-0">
+        <Popover.Button
+          className="text-white relative text-xl font-medium mobile:h-10 mobile:w-10 w-8 h-8 bg-lg-avatar
+         rounded-full overflow-hidden flex items-center justify-center outline-0"
+        >
           {photoURL ? (
             <img
               className="absolute top-0 left-0 w-full h-full object-cover"

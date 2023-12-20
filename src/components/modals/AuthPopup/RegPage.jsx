@@ -1,11 +1,10 @@
-import React, { useState } from "react";
 import { Tab } from "@headlessui/react";
-import { AuthForm } from "./form/AuthForm.jsx";
-import { Welcome } from "./Welcome.jsx";
-import { useAuth, useLogin } from "../../../hooks/useAuth.jsx";
+import { AuthForm } from "./form/AuthForm";
+import { Welcome } from "./Welcome";
+import { useAuth, useLogin } from "../../../hooks/useAuth";
 import { registerUser } from "../../../utils/reg.js";
-import { useAuthErrors } from "../../../hooks/useAuthErrors.jsx";
-import { useModal } from "../../../providers/ModalProvider.jsx";
+import { useAuthErrors } from "../../../hooks/useAuthErrors";
+import { useModal } from "../../../providers/ModalProvider";
 
 export const RegPage = ({ subtitle, button }) => {
   const { setError, error } = useAuthErrors();

@@ -8,22 +8,14 @@ const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    // ==== //
-    setUser(state, action) {
-      const storedUser = JSON.parse(sessionStorage.getItem(localStorageItem));
-      if (storedUser) {
-        return storedUser;
-      } else {
-        console.error("No user found in sessionStorage");
-        return initialState;
-      }
+    setUser() {
+      const storedUser = JSON.parse(localStorage.getItem(localStorageItem));
+      return storedUser ? storedUser : initialState;
     },
-    // ==== //
     removeUser() {
-      sessionStorage.removeItem(localStorageItem);
+      localStorage.removeItem(localStorageItem);
       return initialState;
     },
-    // ==== //
   },
 });
 

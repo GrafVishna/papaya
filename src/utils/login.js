@@ -1,5 +1,6 @@
 import {
   browserSessionPersistence,
+  browserLocalPersistence,
   setPersistence,
   signInWithEmailAndPassword,
 } from "firebase/auth";
@@ -14,7 +15,7 @@ export const authUser = async (
   password,
 ) => {
   try {
-    await setPersistence(auth, browserSessionPersistence);
+    await setPersistence(auth, browserLocalPersistence);
     const { user } = await signInWithEmailAndPassword(auth, email, password);
     dispatch(setUser());
     setTimeout(() => setModalSIn(false), 2400);
