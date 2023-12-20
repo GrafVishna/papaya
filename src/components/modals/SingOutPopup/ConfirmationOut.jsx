@@ -1,6 +1,6 @@
 import { PiSmileySadThin } from "react-icons/pi";
 import { BorderBtn } from "../../buttons/BorderBtn.jsx";
-import { removeUser } from "../../../store/slices/userSlice.js";
+import { logOut } from "../../../utils/logOut.js";
 import { useDispatch } from "react-redux";
 
 export const ConfirmationOut = ({ email }) => {
@@ -19,7 +19,7 @@ export const ConfirmationOut = ({ email }) => {
           <PiSmileySadThin size={100} className="text-gray-500" />
         </span>
       </div>
-      <BorderBtn content="Log Out" handleClick={() => dispatch(removeUser())} />
+      <BorderBtn content="Log Out" handleClick={() => logOut(dispatch)} />
     </div>
   );
 };

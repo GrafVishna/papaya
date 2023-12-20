@@ -9,7 +9,10 @@ import { HiOutlineUser } from "react-icons/hi2";
 const UserDropdown = () => {
   const { setModalSIn, setModalOut } = useModal();
   const { isAuth, photoURL, email } = useAuth();
-
+  // uid, displayName, emailVerified
+  // console.log(`uid: ${uid}`);
+  // console.log(`name: ${uid}`);
+  // console.log(`verified: ${emailVerified}`);
   return (
     <Popover className="relative z-[100]">
       {!isAuth ? (

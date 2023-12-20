@@ -11,7 +11,8 @@ import { TextInput } from "./TextInput.jsx";
 
 export const AuthForm = ({ button, handleClick, error }) => {
   const [email, setEmail] = useState("");
-  const [pass, setPass] = useState("");
+  const [password, setPass] = useState("");
+
   return (
     <>
       <div className={`flex-auto group `}>
@@ -27,7 +28,7 @@ export const AuthForm = ({ button, handleClick, error }) => {
           type="password"
           placeholder="Password"
           setAction={setPass}
-          value={pass}
+          value={password}
           error={error === ERR_PASSWORD && true}
           errorMsg="Invalid password!"
         />
@@ -49,9 +50,9 @@ export const AuthForm = ({ button, handleClick, error }) => {
 
       <div className="mt-4 flex items-center gap-4 mobile-s:flex-row flex-col w-full justify-between">
         <DarkBtn
-          handleClick={() => handleClick(email, pass)}
+          handleClick={() => handleClick(email, password)}
           email={email}
-          pass={pass}
+          pass={password}
           content={button}
         />
         <GoogleBtn />

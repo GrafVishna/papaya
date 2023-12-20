@@ -1,6 +1,6 @@
 import { Dialog } from "@headlessui/react";
 import React, { Fragment } from "react";
-import { useAuth, useLogin } from "../../../hooks/useAuth.jsx";
+import { useAuth } from "../../../hooks/useAuth.jsx";
 import { IoCloseOutline } from "react-icons/io5";
 import { ConfirmationOut } from "./ConfirmationOut.jsx";
 import { ByeOut } from "./ByeOut.jsx";
