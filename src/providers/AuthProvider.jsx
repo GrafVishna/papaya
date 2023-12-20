@@ -22,7 +22,18 @@ export const AuthProviderSetUser = ({ children }) => {
         email: user.email,
         photoURL: user.photoURL,
         emailVerified: user.emailVerified,
+        providerData: {},
       };
+      user.providerData.forEach((profile) => {
+        currentUser.providerData = {
+          providerPhotoUrl: profile.photoURL,
+          providerDisplayName: profile.displayName,
+          providerUid: profile.uid,
+          providerId: profile.providerId,
+          providerEmail: profile.email,
+        };
+      });
+      console.log(currentUser);
       dispatch(setUser({ ...currentUser }));
     }
   });

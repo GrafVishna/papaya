@@ -5,18 +5,16 @@ import { useAuth } from "../../hooks/useAuth";
 import { BorderBtn } from "../buttons/BorderBtn";
 import { HiOutlineHome } from "react-icons/hi2";
 import { HiOutlineUser } from "react-icons/hi2";
+import { Avatar } from "./Avatar.jsx";
 
 const UserDropdown = () => {
   const { setModalSIn, setModalOut } = useModal();
-  const { isAuth, photoURL, email } = useAuth();
-  // uid, displayName, emailVerified
-  // console.log(`uid: ${uid}`);
-  // console.log(`name: ${uid}`);
-  // console.log(`verified: ${emailVerified}`);
+  const { isAuth, displayName } = useAuth();
+
   return (
-    <Popover className="relative z-[100]">
+    <Popover className="relative z-[100] mobile:text-[24px] text-[18px]">
       {!isAuth ? (
-        <Popover.Button className="text-white text-xl font-medium   rounded-full flex items-center justify-center outline-0">
+        <Popover.Button className="text-white text-xl font-medium rounded-full flex items-center justify-center outline-0">
           <HiOutlineHome className="mobile:text-[23px] text-[19px]" />
         </Popover.Button>
       ) : (
@@ -24,15 +22,7 @@ const UserDropdown = () => {
           className="text-white relative text-xl font-medium mobile:h-10 mobile:w-10 w-8 h-8 bg-lg-avatar
          rounded-full overflow-hidden flex items-center justify-center outline-0"
         >
-          {photoURL ? (
-            <img
-              className="absolute top-0 left-0 w-full h-full object-cover"
-              src={`${photoURL}`}
-              alt=""
-            />
-          ) : (
-            <HiOutlineUser className="mobile:text-[23px] text-[19px]" />
-          )}
+          <Avatar size="100%" font="1em" />
         </Popover.Button>
       )}
 
@@ -54,9 +44,11 @@ const UserDropdown = () => {
               />
             ) : (
               <>
-                <p className="text-center w-full text-sm text-gray-400 nav-item pb-8">
-                  {email && email}
+                <p className="text-center flex flex-col items-center gap-5 w-full text-sm text-gray-400 nav-item pb-4 mb-8">
+                  <Avatar size="100px" font="35px" />
+                  <span>{displayName && displayName}</span>
                 </p>
+
                 <BorderBtn content="Profile" />
                 <BorderBtn
                   content="Log Out"
