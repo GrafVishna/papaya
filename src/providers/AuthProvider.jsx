@@ -14,7 +14,7 @@ export const AuthProvider = ({ children }) => {
 
 export const AuthProviderSetUser = ({ children }) => {
   const dispatch = useDispatch();
-  onAuthStateChanged(auth, (user) => {
+  const unsubscribe = onAuthStateChanged(auth, (user) => {
     if (user) {
       const currentUser = {
         uid: user.uid,
@@ -22,20 +22,20 @@ export const AuthProviderSetUser = ({ children }) => {
         email: user.email,
         photoURL: user.photoURL,
         emailVerified: user.emailVerified,
-        providerData: {},
-      };
-      user.providerData.forEach((profile) => {
-        currentUser.providerData = {
+        providerData: user.providerData.map((profile) => ({
           providerPhotoUrl: profile.photoURL,
           providerDisplayName: profile.displayName,
           providerUid: profile.uid,
           providerId: profile.providerId,
           providerEmail: profile.email,
-        };
-      });
+        })),
+      };
 
       dispatch(setUser({ ...currentUser }));
     }
+    return () => {
+      unsubscribe();
+    };
   });
   return <>{children}</>;
 };

@@ -23,6 +23,7 @@ export default {
       colors: {
         blue: "#22D7FF",
         pink: "#C427FBFF",
+        "dark-purple": "#1E1C34",
       },
 
       height: {
@@ -41,6 +42,8 @@ export default {
           "linear-gradient(180deg, rgba(196, 39, 251, 0.00) 0%, rgba(196, 39, 251, 0.20) 100%)",
         "lg-card":
           "linear-gradient(180deg, rgba(72, 49, 157, 0.20) 18.75%, rgba(72, 49, 157, 0.00) 100%)",
+        "lg-profile-header":
+          "linear-gradient(180deg, rgba(36, 38, 68, 0) 5%, #1E1C34 95.72%)",
         "lg-aside-card":
           "linear-gradient(90deg, rgba(72, 49, 157, 0.20) 18.75%, rgba(72, 49, 157, 0.00) 100%)",
         "lg-decryption":

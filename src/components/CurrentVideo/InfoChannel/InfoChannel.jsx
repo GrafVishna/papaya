@@ -7,7 +7,7 @@ export default function InfoChannel({ data }) {
         <span className="rounded-full overflow-hidden w-12 h-12 relative">
           <img
             className="absolute top-0 left-0 w-full h-full object-cover"
-            src={data.avatar_urls["48"]}
+            src={data.avatar_urls[48]}
             alt={data.name}
           />
         </span>

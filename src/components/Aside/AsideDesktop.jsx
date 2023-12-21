@@ -8,9 +8,9 @@ import {
   IShorts,
   Subscriptions,
   Videos,
-} from "../../Icons.jsx";
+} from "../Icons.jsx";
 import NavItem from "./NavItem.jsx";
-import UseScroll from "../../../hooks/useScroll.jsx";
+import UseScroll from "../../hooks/useScroll.jsx";
 
 export default function AsideDesktop({ ref }) {
   const asideRef = useRef();

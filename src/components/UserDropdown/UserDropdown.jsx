@@ -6,6 +6,7 @@ import { BorderBtn } from "../buttons/BorderBtn";
 import { IoIosMenu } from "react-icons/io";
 
 import { Avatar } from "./Avatar.jsx";
+import { NavLink } from "react-router-dom";
 
 const UserDropdown = () => {
   const { setModalSIn, setModalOut } = useModal();
@@ -48,8 +49,9 @@ const UserDropdown = () => {
                   <Avatar size="100px" font="35px" />
                   <span>{displayName ? displayName : email}</span>
                 </div>
-
-                <BorderBtn content="Profile" />
+                <NavLink to="/profile" className="w-full">
+                  <BorderBtn content="Profile" />
+                </NavLink>
                 <BorderBtn
                   content="Log Out"
                   handleClick={() => setModalOut(true)}

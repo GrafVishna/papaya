@@ -62,6 +62,13 @@
     grid-area: body;
   }
 
+  .img-ibg {
+    @apply relative;
+    img {
+      @apply absolute top-0 left-0 w-full h-full object-cover;
+    }
+  }
+
   .nav-item {
     @apply relative;
     &.mobile {

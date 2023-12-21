@@ -1,6 +1,6 @@
 import React from "react";
 import NavItem from "./NavItem.jsx";
-import { IHome, Music, IShorts, Subscriptions } from "../../Icons.jsx";
+import { IHome, Music, IShorts, Subscriptions } from "../Icons.jsx";
 
 export default function AsideMobile() {
   return (

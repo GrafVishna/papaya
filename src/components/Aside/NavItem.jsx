@@ -1,5 +1,5 @@
 import React from "react";
-import RButton from "../../buttons/RButton.jsx";
+import RButton from "../buttons/RButton.jsx";
 import { NavLink, Route, Routes } from "react-router-dom";
 
 export default function NavItem({ children, className, text, mobile, path }) {

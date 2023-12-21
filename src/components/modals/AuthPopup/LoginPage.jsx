@@ -5,7 +5,7 @@ import { useAuthErrors } from "../../../hooks/useAuthErrors.jsx";
 import { useModal } from "../../../providers/ModalProvider.jsx";
 
 export const LoginPage = ({ subtitle, button }) => {
-  const { setError, error } = useAuthErrors();
+  const { error, setError } = useAuthErrors();
   const { setModalSIn } = useModal();
 
   const handleLogIn = async (email, password) => {

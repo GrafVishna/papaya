@@ -8,14 +8,14 @@ import {
   IShorts,
   Subscriptions,
   Videos,
-} from "../../Icons.jsx";
-import { useMatchMedia } from "../../../hooks/useMatchMedia.jsx";
+} from "../Icons.jsx";
+import { useMatchMedia } from "../../hooks/useMatchMedia.jsx";
 import AsideMobile from "./AsideMobile.jsx";
 import AsideDesktop from "./AsideDesktop.jsx";
 import { Route, Routes } from "react-router-dom";
-import Home from "../../Pages/Home/Home.jsx";
-import Shorts from "../../Pages/Shorts/Shorts.jsx";
-import App from "../../App.jsx";
+import Home from "../Pages/Home/Home.jsx";
+import Shorts from "../Pages/Shorts/Shorts.jsx";
+import App from "../App.jsx";
 
 export default function Aside() {
   // Media

@@ -5,7 +5,7 @@ import ActionsWrapper from "../ActionsWrapper/ActionsWrapper.jsx";
 export default function SubscriptionsButtons() {
   return (
     <ActionsWrapper>
-      <button className="">
+      <button>
         <span>Join</span>
       </button>
       <button className="active">

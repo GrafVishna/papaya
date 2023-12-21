@@ -29,7 +29,7 @@ export default function CurrentVideo({ videoId }) {
 
     fetchData();
   }, [videoId]);
-
+  console.log(videoId);
   if (!videoPost) {
     return null;
   }
@@ -41,7 +41,6 @@ export default function CurrentVideo({ videoId }) {
     videoPost?.posterData?.media_details?.sizes?.large?.source_url;
 
   const dataChannel = videoPost?.authorData;
-  console.log(videoPost.videoData);
   return (
     <div>
       <div className="relative">

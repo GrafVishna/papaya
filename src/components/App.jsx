@@ -11,6 +11,8 @@ import VideoLayout from "./Layouts/VideoLayout.jsx";
 import Video from "./Pages/Video/Video.jsx";
 import MyModal from "./modals/AuthPopup/AuthPopup.jsx";
 import { SingOutPopup } from "./modals/SingOutPopup/SingOutPopup.jsx";
+import { Profile } from "./Pages/Profile/Profile.jsx";
+import { ProfileLayout } from "./Layouts/ProfileLayout.jsx";
 
 // w
 function App() {
@@ -27,6 +29,9 @@ function App() {
           </Route>
           <Route path="/video/:videoId" element={<VideoLayout />}>
             <Route index element={<Video />} />
+          </Route>
+          <Route path="/profile" element={<ProfileLayout />}>
+            <Route index element={<Profile />} />
           </Route>
         </Routes>
       </PageWrapper>
