@@ -1,13 +1,14 @@
 import { FcGoogle } from "react-icons/fc";
-import { signInWithGoogle } from "../../utils/googleAuthUtils.js";
-import { auth } from "../../firebase.js";
-import { useModal } from "../../providers/ModalProvider";
+import { signInWithGoogle } from "../../../services/googleAuth.service.js";
+import { auth } from "../../../firebase.js";
+import { useModal } from "../../../providers/ModalProvider.jsx";
+import { useDispatch } from "react-redux";
 
 const GoogleBtn = ({ content }) => {
   const { setModalSIn } = useModal();
-
+  const dispatch = useDispatch();
   const handleLogInGoogle = async () => {
-    await signInWithGoogle(auth, setModalSIn);
+    await signInWithGoogle(auth, setModalSIn, dispatch);
   };
 
   return (

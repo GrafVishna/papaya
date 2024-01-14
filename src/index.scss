@@ -19,6 +19,10 @@
   font-weight: 400;
 }
 
+body {
+  overflow: hidden;
+}
+
 @import 'overlayscrollbars/overlayscrollbars.css';
 @tailwind base;
 @tailwind components;
@@ -187,7 +191,7 @@
   }
 
   .shadow-input {
-    @apply input-bordered border-[0px] input-primary w-full bg-lg-body focus:outline-0 transition duration-[0.3s] focus:shadow-bs-filter;
+    @apply input-bordered border-[0px] border-b-[1px] border-white/5 input-primary w-full bg-lg-body focus:outline-0 transition duration-[0.3s] focus:shadow-bs-filter;
   }
 }
 

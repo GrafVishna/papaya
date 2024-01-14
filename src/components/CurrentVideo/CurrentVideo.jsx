@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import SubscriptionsButtons from "./SubscriptionsButtons/SubscriptionsButtons.jsx";
+import SubscriptionsButtons from "../share/buttons/SubscriptionsButtons/SubscriptionsButtons.jsx";
 import InfoChannel from "./InfoChannel/InfoChannel.jsx";
 import VideoActions from "./VideoActions/VideoActions.jsx";
 import VideoTitle from "./VideoTitle/VideoTitle.jsx";
@@ -29,7 +29,7 @@ export default function CurrentVideo({ videoId }) {
 
     fetchData();
   }, [videoId]);
-  console.log(videoId);
+
   if (!videoPost) {
     return null;
   }

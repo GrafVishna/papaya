@@ -1,5 +1,5 @@
 import { PiHandThin } from "react-icons/pi";
-import { PopupTransition } from "../../transitions/PopupTransition.jsx";
+import { PopupTransition } from "../../share/transitions/PopupTransition.jsx";
 
 export const ByeOut = ({ show }) => {
   return (

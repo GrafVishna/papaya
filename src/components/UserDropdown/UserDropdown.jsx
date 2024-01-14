@@ -1,12 +1,12 @@
 import { Popover, Transition } from "@headlessui/react";
-import { Fragment } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { useModal } from "../../providers/ModalProvider";
 import { useAuth } from "../../hooks/useAuth";
-import { BorderBtn } from "../buttons/BorderBtn";
+import { BorderBtn } from "../share/buttons/BorderBtn";
 import { IoIosMenu } from "react-icons/io";
-
-import { Avatar } from "./Avatar.jsx";
+import { AvatarCurrent } from "../share/avatars/AvatarCurrent.jsx";
 import { NavLink } from "react-router-dom";
+// import useFetchUserData from "../../services/getOneUser.js";
 
 const UserDropdown = () => {
   const { setModalSIn, setModalOut } = useModal();
@@ -23,7 +23,7 @@ const UserDropdown = () => {
           className="text-white relative text-xl font-medium h-[100%] w-[100%] bg-lg-avatar
          rounded-full overflow-hidden flex items-center justify-center outline-0"
         >
-          <Avatar size="100%" />
+          <AvatarCurrent size="100%" />
         </Popover.Button>
       )}
 
@@ -46,11 +46,14 @@ const UserDropdown = () => {
             ) : (
               <>
                 <div className="text-center flex flex-col items-center gap-5 w-full text-body-main text-gray-400 nav-item pb-4 mb-8">
-                  <Avatar size="100px" font="35px" />
-                  <span>{displayName ? displayName : email}</span>
+                  <AvatarCurrent size="100px" font="35px" />
+                  <span>{displayName || email}</span>
                 </div>
-                <NavLink to="/profile" className="w-full">
+                <NavLink to="/my-profile" className="w-full">
                   <BorderBtn content="Profile" />
+                </NavLink>
+                <NavLink to="/my-profile/settings" className="w-full">
+                  <BorderBtn content="Settings" />
                 </NavLink>
                 <BorderBtn
                   content="Log Out"

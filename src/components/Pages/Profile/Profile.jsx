@@ -1,11 +1,22 @@
 import { ProfileNav } from "./ProfileNav/ProfileNav.jsx";
-import React from "react";
-import { useAuth } from "../../../hooks/useAuth.jsx";
-import { Avatar } from "../../UserDropdown/Avatar.jsx";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { ChannelDetails } from "./ChannelDetails.jsx";
+import getData from "../../../api/getData.js";
+import { useQuery } from "react-query";
+import { useAuth } from "../../../hooks/useAuth.jsx";
+import { Avatar } from "../../share/avatars/Avatar.jsx";
 
 export const Profile = () => {
+  const { uid } = useAuth();
+  const {
+    data: users,
+    isLoading,
+    isError,
+  } = useQuery("users", () => getData("users"));
+
+  if (isError) {
+    return <p>Error loading data</p>;
+  }
+
   return (
     <>
       <div className="bg-lg-main">
@@ -18,14 +29,28 @@ export const Profile = () => {
           <span className="absolute z-10 bottom-0 left-0 w-full h-1/2 bg-lg-profile-header" />
           <div className="relative z-20 pb-12"></div>
           <div className="relative z-20 px-8 pb-10">
-            {/*<Avatar size="90px" font="30px" />*/}
-            <ChannelDetails />
+            <ChannelDetails
+              user={isLoading ? null : users[1]}
+              isLoading={isLoading}
+            />
           </div>
         </div>
       </div>
       <span></span>
 
       <ProfileNav />
+      <br />
+      <div className="flex gap-4 p-2">
+        {users?.map((el) => (
+          <Avatar
+            key={el.id}
+            id={el.id}
+            avatar={el.avatar}
+            name={el.email}
+            providerAvatar={el.providerAvatar}
+          />
+        ))}
+      </div>
     </>
   );
 };

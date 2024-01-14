@@ -1,4 +1,4 @@
-import { PopupTransition } from "../../transitions/PopupTransition.jsx";
+import { PopupTransition } from "../../share/transitions/PopupTransition.jsx";
 import { PiSmileyThin } from "react-icons/pi";
 
 export const Welcome = ({ show, email }) => {

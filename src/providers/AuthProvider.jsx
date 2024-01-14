@@ -1,8 +1,10 @@
 import { store } from "../store/index.js";
 import { Provider, useDispatch } from "react-redux";
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "../firebase.js";
 import { setUser } from "../store/slices/userSlice.js";
+import { setCurrentUser } from "../store/slices/currentUserSlice.js";
+import { useEffect } from "react";
+import { doc, onSnapshot } from "firebase/firestore";
+import { db } from "../firebase.js";
 
 export const AuthProvider = ({ children }) => {
   return (
@@ -14,28 +16,30 @@ export const AuthProvider = ({ children }) => {
 
 export const AuthProviderSetUser = ({ children }) => {
   const dispatch = useDispatch();
-  const unsubscribe = onAuthStateChanged(auth, (user) => {
-    if (user) {
-      const currentUser = {
-        uid: user.uid,
-        displayName: user.displayName,
-        email: user.email,
-        photoURL: user.photoURL,
-        emailVerified: user.emailVerified,
-        providerData: user.providerData.map((profile) => ({
-          providerPhotoUrl: profile.photoURL,
-          providerDisplayName: profile.displayName,
-          providerUid: profile.uid,
-          providerId: profile.providerId,
-          providerEmail: profile.email,
-        })),
+  const userStorage = localStorage.getItem("user");
+
+  if (userStorage) {
+    const uid = JSON.parse(userStorage).uid;
+    dispatch(setUser(JSON.parse(userStorage)));
+
+    useEffect(() => {
+      const fetchData = async () => {
+        try {
+          const unsubscribe = onSnapshot(
+            doc(db, "users", uid),
+            (docSnapshot) => {
+              dispatch(setCurrentUser(docSnapshot.data()));
+            },
+          );
+
+          return () => unsubscribe();
+        } catch (err) {
+          console.error(err);
+        }
       };
 
-      dispatch(setUser({ ...currentUser }));
-    }
-    return () => {
-      unsubscribe();
-    };
-  });
+      fetchData();
+    }, [uid]);
+  }
   return <>{children}</>;
 };

@@ -1,4 +1,4 @@
-import GoogleBtn from "../../../buttons/GoogleBtn.jsx";
+import GoogleBtn from "../../../share/buttons/GoogleBtn.jsx";
 import { useState } from "react";
 import {
   ERR_CREDENTIAL,
@@ -6,8 +6,8 @@ import {
   ERR_EMAIL_USE,
   ERR_PASSWORD,
 } from "./authErrors.js";
-import { DarkBtn } from "../../../buttons/darkBtn.jsx";
-import { TextInput } from "./TextInput.jsx";
+import { DarkBtn } from "../../../share/buttons/darkBtn.jsx";
+import { TextInput } from "../../../share/inputs/TextInput.jsx";
 
 export const AuthForm = ({ button, handleClick, error }) => {
   const [email, setEmail] = useState("");
@@ -15,7 +15,7 @@ export const AuthForm = ({ button, handleClick, error }) => {
 
   return (
     <>
-      <div className={`flex-auto group `}>
+      <div className={`flex-auto group flex flex-col gap-4`}>
         <TextInput
           type="email"
           placeholder="Email"

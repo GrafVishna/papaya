@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import CurrentVideo from "../../CurrentVideo/CurrentVideo.jsx";
 import AsideVideo from "../../AsideVideo/AsideVideo.jsx";
 import ContentWrapperVideoPage from "../../Wrappers/ContentWrapperVideoPage.jsx";
@@ -6,7 +6,6 @@ import UseScroll from "../../../hooks/useScroll.jsx";
 
 import { useParams } from "react-router-dom";
 import { useMatchMedia } from "../../../hooks/useMatchMedia.jsx";
-import Filters from "../../Header/Filters/Filters.jsx";
 
 export default function Video() {
   const queries = ["(max-width: 1100px)", "(min-width: 1100px)"];

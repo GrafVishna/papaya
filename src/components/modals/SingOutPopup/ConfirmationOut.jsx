@@ -1,6 +1,6 @@
 import { PiSmileySadThin } from "react-icons/pi";
-import { BorderBtn } from "../../buttons/BorderBtn.jsx";
-import { logOut } from "../../../utils/logOut.js";
+import { BorderBtn } from "../../share/buttons/BorderBtn.jsx";
+import { logOut } from "../../../services/userFirebaseLogOut.js";
 import { useDispatch } from "react-redux";
 
 export const ConfirmationOut = ({ email }) => {

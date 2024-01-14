@@ -1,15 +1,17 @@
 import { Tab } from "@headlessui/react";
 import { AuthForm } from "./form/AuthForm.jsx";
-import { authUser } from "../../../utils/login.js";
+import { authUser } from "../../../services/userLogin.service.js";
 import { useAuthErrors } from "../../../hooks/useAuthErrors.jsx";
 import { useModal } from "../../../providers/ModalProvider.jsx";
+import { useDispatch } from "react-redux";
 
 export const LoginPage = ({ subtitle, button }) => {
   const { error, setError } = useAuthErrors();
   const { setModalSIn } = useModal();
+  const dispatch = useDispatch();
 
   const handleLogIn = async (email, password) => {
-    await authUser(setModalSIn, setError, email, password);
+    await authUser({ setModalSIn, dispatch, setError, email, password });
   };
 
   return (

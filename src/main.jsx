@@ -5,13 +5,17 @@ import { AuthProvider } from "./providers/AuthProvider.jsx";
 import App from "./components/App.jsx";
 import "./firebase";
 import "./index.scss";
+import { QueryClient, QueryClientProvider } from "react-query";
 
+const queryClient = new QueryClient();
 ReactDOM.createRoot(document.getElementById("root")).render(
   <AuthProvider>
-    <BrowserRouter>
-      <ModalProvider>
-        <App />
-      </ModalProvider>
-    </BrowserRouter>
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <ModalProvider>
+          <App />
+        </ModalProvider>
+      </BrowserRouter>
+    </QueryClientProvider>
   </AuthProvider>,
 );

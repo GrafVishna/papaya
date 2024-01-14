@@ -4,7 +4,7 @@ import { useAuth } from "../../../hooks/useAuth.jsx";
 import { IoCloseOutline } from "react-icons/io5";
 import { ConfirmationOut } from "./ConfirmationOut.jsx";
 import { ByeOut } from "./ByeOut.jsx";
-import { MainPopupTransition } from "../../transitions/MainPopupTransition.jsx";
+import { MainPopupTransition } from "../../share/transitions/MainPopupTransition.jsx";
 import { useModal } from "../../../providers/ModalProvider.jsx";
 
 export const SingOutPopup = () => {

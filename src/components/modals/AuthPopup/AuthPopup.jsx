@@ -5,7 +5,7 @@ import TabsAuth from "./authTabs/TabsAuth.jsx";
 import { useAuth } from "../../../hooks/useAuth.jsx";
 import { IoCloseOutline } from "react-icons/io5";
 import { Welcome } from "./Welcome.jsx";
-import { MainPopupTransition } from "../../transitions/MainPopupTransition.jsx";
+import { MainPopupTransition } from "../../share/transitions/MainPopupTransition.jsx";
 
 export default function MyModal() {
   const { modalIn, setModalSIn } = useModal();

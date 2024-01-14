@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const DarkBtn = ({ handleClick, content }) => {
+export const DarkBtn = ({ handleClick, content, className }) => {
   const btnClassNames =
     "mobile-s:w-auto w-full inline-flex relative overflow-hidden border-none justify-center rounded-md border bg-video-subscription px-10 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-0 hover:before:translate-y-[0] focus:before:translate-y-[0]";
   const btnBeforeClassNames =
@@ -10,7 +10,7 @@ export const DarkBtn = ({ handleClick, content }) => {
     <button
       onClick={handleClick && handleClick}
       type="button"
-      className={`${btnClassNames} ${btnBeforeClassNames}`}
+      className={`${btnClassNames} ${btnBeforeClassNames} ${className}`}
     >
       <span className="relative z-20 pointer-events-none">
         {content && content}

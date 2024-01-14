@@ -5,10 +5,18 @@ export const ModalContext = createContext(false);
 export const ModalProvider = ({ children }) => {
   const [modalIn, setModalSIn] = useState(false);
   const [modalOut, setModalOut] = useState(false);
+  const [modalAvatarEdit, setModalAvatarEdit] = useState(false);
 
   return (
     <ModalContext.Provider
-      value={{ modalIn, setModalSIn, modalOut, setModalOut }}
+      value={{
+        modalIn,
+        setModalSIn,
+        modalOut,
+        setModalOut,
+        modalAvatarEdit,
+        setModalAvatarEdit,
+      }}
     >
       {children}
     </ModalContext.Provider>

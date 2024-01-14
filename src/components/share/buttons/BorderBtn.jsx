@@ -1,4 +1,4 @@
-import { removeUser } from "../../store/slices/userSlice.js";
+import { removeUser } from "../../../store/slices/userSlice.js";
 import React from "react";
 
 export const BorderBtn = ({ handleClick, content }) => {
