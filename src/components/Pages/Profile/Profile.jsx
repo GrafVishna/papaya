@@ -3,7 +3,6 @@ import { ChannelDetails } from "./ChannelDetails.jsx";
 import getData from "../../../api/getData.js";
 import { useQuery } from "react-query";
 import { useAuth } from "../../../hooks/useAuth.jsx";
-import { Avatar } from "../../share/avatars/Avatar.jsx";
 
 export const Profile = () => {
   const { uid } = useAuth();
@@ -40,17 +39,6 @@ export const Profile = () => {
 
       <ProfileNav />
       <br />
-      <div className="flex gap-4 p-2">
-        {users?.map((el) => (
-          <Avatar
-            key={el.id}
-            id={el.id}
-            avatar={el.avatar}
-            name={el.email}
-            providerAvatar={el.providerAvatar}
-          />
-        ))}
-      </div>
     </>
   );
 };

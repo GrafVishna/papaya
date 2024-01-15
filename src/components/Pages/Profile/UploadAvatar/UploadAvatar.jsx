@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import { BorderBtn } from "../../../share/buttons/BorderBtn.jsx";
 import { useAuth } from "../../../../hooks/useAuth.jsx";
 import { imageUploadDB } from "../../../../services/uploadAvatar.service.js";
-import { useImageChange } from "../../../../hooks/useImageChange.jsx";
+import { useFileChange } from "../../../../hooks/useFileChange.jsx";
 import { CgSoftwareUpload } from "react-icons/cg";
 import { DEFAULT_AVATAR } from "../../../../api/GlobalURL.js";
 import { editUserDataToFirestore } from "../../../../services/userSettings.service.js";
@@ -38,7 +38,7 @@ export const UploadAvatar = ({ currentAvatar, isLoading, refetch }) => {
     });
   };
 
-  const image = useImageChange(fileUpload);
+  const image = useFileChange(fileUpload);
   const avatarVisible = image
     ? image
     : currentAvatar

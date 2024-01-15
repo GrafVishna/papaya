@@ -1,5 +1,5 @@
-import { setDoc, getDoc } from "firebase/firestore";
-import { createUserRef } from "./FirebaseRefs.js";
+import { doc, setDoc, getDoc, updateDoc } from "firebase/firestore";
+import { db } from "../firebase.js";
 
 export const editUserDataToFirestore = async (userId, userData) => {
   try {
@@ -8,9 +8,8 @@ export const editUserDataToFirestore = async (userId, userData) => {
       return;
     }
 
-    const userDocRef = createUserRef(userId);
+    const userDocRef = doc(db, "users", userId);
     const userDoc = await getDoc(userDocRef);
-
     if (userDoc.exists()) {
       await setDoc(userDocRef, { ...userData }, { merge: true });
       console.log("User data saved to Firestore.");

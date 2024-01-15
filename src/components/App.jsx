@@ -15,6 +15,7 @@ import { Profile } from "./Pages/Profile/Profile.jsx";
 import { ProfileLayout } from "./Layouts/ProfileLayout.jsx";
 import { SettingsProfile } from "./Pages/Profile/SettingsProfile.jsx";
 import { useAuth } from "../hooks/useAuth.jsx";
+import { Upload } from "./Pages/Upload/Upload.jsx";
 
 // w
 function App() {
@@ -37,6 +38,7 @@ function App() {
           <Route path="/my-profile" element={redirect}>
             <Route index element={<Profile />} />
             <Route path="settings" element={<SettingsProfile />} />
+            <Route path="upload" element={<Upload />} />
           </Route>
         </Routes>
       </PageWrapper>

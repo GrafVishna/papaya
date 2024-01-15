@@ -6,6 +6,7 @@ import { BorderBtn } from "../share/buttons/BorderBtn";
 import { IoIosMenu } from "react-icons/io";
 import { AvatarCurrent } from "../share/avatars/AvatarCurrent.jsx";
 import { NavLink } from "react-router-dom";
+import { Upload } from "../Pages/Upload/Upload.jsx";
 // import useFetchUserData from "../../services/getOneUser.js";
 
 const UserDropdown = () => {
@@ -51,6 +52,9 @@ const UserDropdown = () => {
                 </div>
                 <NavLink to="/my-profile" className="w-full">
                   <BorderBtn content="Profile" />
+                </NavLink>
+                <NavLink to="/my-profile/upload" className="w-full">
+                  <BorderBtn content="Upload" />
                 </NavLink>
                 <NavLink to="/my-profile/settings" className="w-full">
                   <BorderBtn content="Settings" />

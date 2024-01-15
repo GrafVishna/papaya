@@ -28,7 +28,7 @@ export const imageUploadDB = ({
               "state_changed",
               (snapshot) => handleUploadProgress(snapshot, setIsUpload),
               (error) => console.error(error),
-              () => successUploadAvatar({ clearFileUpload }),
+              () => successUploadFile({ clearFileUpload }),
             );
           })
           .then(() => {
@@ -39,7 +39,7 @@ export const imageUploadDB = ({
   }
 };
 
-const successUploadAvatar = ({ clearFileUpload }) => {
+const successUploadFile = ({ clearFileUpload }) => {
   clearFileUpload();
   console.log("Success upload avatar");
 };

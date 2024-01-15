@@ -1,13 +1,13 @@
 import { useState } from "react";
 
-export const useImageChange = (targetImage) => {
-  const [image, setImage] = useState(null);
+export const useFileChange = (targetImage) => {
+  const [file, setFile] = useState(null);
   if (targetImage) {
     const reader = new FileReader();
     reader.onload = () => {
-      setImage(reader.result);
+      setFile(reader.result);
     };
     reader.readAsDataURL(targetImage);
-    return image;
+    return file;
   }
 };
