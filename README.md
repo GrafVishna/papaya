@@ -1,8 +1,8 @@
 # React + Vite
 
-![Screenshot](https://papaya.artem.monster/git.jpg)
+![Screenshot](https://papaya.frontelf.com/git.jpg)
 
-### 🌐  [Application link](https://papaya.artem.monster)
+### 🌐  [Application link](https://papaya.frontelf.com)
 
 Currently, two official plugins are available:
 
